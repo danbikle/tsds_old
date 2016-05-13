@@ -1,2 +1,10 @@
 
 .navbar-dark .navbar-nav .nav-link {color: white;}
+
+body p{
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #003300;
+    font-weight: bold;
+}
