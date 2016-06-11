@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cclasses/index'
+
   get 'posts/index'
   root 'posts#index'
   get ':controller(/:action)'
