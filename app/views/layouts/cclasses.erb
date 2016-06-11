@@ -20,19 +20,11 @@
   </head>
 
   <body>
+
     <%=render('layouts/topnavbar')%>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-3">tsds4.us</h1>
-        <p>Time Series Data Science For Us</p>
-        <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
-
     <!-- element below should be div.container which comes from erb files in ../posts/ -->
     <%= yield %>
+    <%=render('layouts/bottom_links')%>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

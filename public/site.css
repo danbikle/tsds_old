@@ -12,3 +12,19 @@ body p{
     color: #003300;
     font-weight: bold;
 }
+
+.my-bottom-nav {
+    background-color: #373a3c;
+}
+
+.my-bottom-nav a{
+    color: white;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-left: 33px;
+}
+
+.my-bottom-nav a:hover{
+    background-color: #EEEEEE;
+    color: #BB0000; 
+}
