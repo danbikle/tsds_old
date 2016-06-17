@@ -5,13 +5,14 @@
 import numpy as np
 import pdb
 
-pdb.set_trace()
-
 # I should declare three points:
 pt0 = [0.001,0.001]
 pt1 = [1.1,1.1]
 pt2 = [2.2,2.2]
-
+print('My Points:')
+print(pt0)
+print(pt1)
+print(pt2)
 # I should get the x,y values from the points:
 x_l = [pt0[0],pt1[0],pt2[0]]
 y_l = [pt0[1],pt1[1],pt2[1]]
@@ -25,8 +26,43 @@ y_l = [pt0[1],pt1[1],pt2[1]]
 from sklearn import linear_model
 
 # I should create linear regression object:
-regr = linear_model.LinearRegression()
+regr0 = linear_model.LinearRegression()
 
+# I should fit a line to the three points:
+# regr0.fit(x_l, y_l)
+# gives:
+# ValueError: Found arrays with inconsistent numbers of samples: [1 3]
+# Step towards solution:
+# y_l should be a simple list.
+# Understand that x_l can be a list of lists.
+# Aha,
+# linear_model dictates that x_l have more than one dimension.
+X_l = [ [pt0[0]], [pt1[0]], [pt2[0]] ]
+regr0.fit(X_l, y_l)
 
+# Doc says:
+# y(w,x) = w0 + w1*x
+# I wrote pt0,1,2 so that w0 should be near 0. and w1 should be near 1.0
+# I should see if true:
+print('Line0 intercept and slope:')
+print(regr0.intercept_)
+print(regr0.coef_)
+
+# If I move the points up, what happens?
+y_l   = [ pt0[1]+0.1, pt1[1]+0.1, pt2[1]+0.1 ]
+regr1 = linear_model.LinearRegression()
+regr1.fit(X_l, y_l)
+print('Line1 intercept and slope:')
+print(regr1.intercept_)
+print(regr1.coef_)
+
+# If I move pt2 higher, does that increase the 'slope' of the fitted line?
+# What happens to the y-intercept?
+y_l   = [ pt0[1]+0.1, pt1[1]+0.1, pt2[1]+3.0 ]
+regr2 = linear_model.LinearRegression()
+regr2.fit(X_l, y_l)
+print('Line2 intercept and slope:')
+print(regr2.intercept_)
+print(regr2.coef_)
 
 'bye'
