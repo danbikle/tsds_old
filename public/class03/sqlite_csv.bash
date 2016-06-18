@@ -40,17 +40,23 @@ cat >> /tmp/sqlite_csv.sql <<EOF
 .separator ,
 .import /tmp/allpredictions_nh.csv allpredictions
 
+-- I should run some interesting queries:
+
 select count(*) from allpredictions;
+select min(pctlead), avg(pctlead), max(pctlead) from allpredictions;
+select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 < -1.0;
+select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 >  1.0;
+
+.quit
 
 EOF
-
-cat             /tmp/sqlite_csv.sql
 
 # I should remove column names from CSV:
 cat /tmp/allpredictions.csv | sed 1d > /tmp/allpredictions_nh.csv
 
 # I should run the sql now:
-sqlite3 -init sqlite_csv.sql sqlite_csv.db
-
+sqlite3 sqlite_csv.db <<EOF
+.read sqlite_csv.sql
+EOF
 
 exit
