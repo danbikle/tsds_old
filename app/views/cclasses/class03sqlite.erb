@@ -9,7 +9,7 @@
 
 cd /tmp/
 
-cat > /tmp/sqlite_csv.sql <<EOF
+cat > /tmp/sqlite_csv.sql &lt;&lt;EOF
 --
 -- sqlite_csv.sql
 --
@@ -36,7 +36,7 @@ head -1 allpredictions.csv |\
 # I should add the names to the script:
 cat cols.txt >> /tmp/sqlite_csv.sql
 
-cat >> /tmp/sqlite_csv.sql <<EOF
+cat >> /tmp/sqlite_csv.sql &lt;&lt;EOF
 
 .separator ,
 .import /tmp/allpredictions_nh.csv allpredictions
@@ -45,7 +45,7 @@ cat >> /tmp/sqlite_csv.sql <<EOF
 
 select count(*) from allpredictions;
 select min(pctlead), avg(pctlead), max(pctlead) from allpredictions;
-select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 < -1.0;
+select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 &lt; -1.0;
 select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 >  1.0;
 
 .quit
@@ -56,7 +56,7 @@ EOF
 cat /tmp/allpredictions.csv | sed 1d > /tmp/allpredictions_nh.csv
 
 # I should run the sql now:
-sqlite3 sqlite_csv.db <<EOF
+sqlite3 sqlite_csv.db &lt;&lt;EOF
 .read sqlite_csv.sql
 EOF
 
