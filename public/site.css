@@ -28,3 +28,13 @@ body p{
     background-color: #EEEEEE;
     color: #BB0000; 
 }
+
+div.syntax pre {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #330000;
+    font-weight: bold;
+    border-radius: 15px;
+    padding-left:  11px;
+    background-color: #DDDDDD;
+}
