@@ -52,6 +52,9 @@ select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag
 
 EOF
 
+# I should get the data:
+curl www.spy611.com/csv/allpredictions.csv > /tmp/allpredictions.csv
+
 # I should remove column names from CSV:
 cat /tmp/allpredictions.csv | sed 1d > /tmp/allpredictions_nh.csv
 
