@@ -53,7 +53,9 @@ select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag
 select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 >  1.1;
 
 -- What is correlation between pctlag1, pctlead?
-select corr(pctlag1, pctlead) from allpredictions;
+-- select corr(pctlag1, pctlead) from allpredictions;
+-- oops, I cannot do that.
+-- postgres has corr(x, y) but not sqlite.
 
 -- What did predictions look like in May 2016?
 select cdate,cp,pctlead,eff1d_lr,eff1d_nb from allpredictions
