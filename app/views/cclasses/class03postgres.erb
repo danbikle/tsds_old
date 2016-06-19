@@ -21,7 +21,7 @@ select count(*) from allpredictions;
 select min(pctlead), avg(pctlead), max(pctlead) from allpredictions;
 
 -- If pctlag1 is strongly negative, what is pctlead?
-select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 < -1.1;
+select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 &lt; -1.1;
 
 -- If pctlag1 is strongly positive, what is pctlead?
 select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 >  1.1;
