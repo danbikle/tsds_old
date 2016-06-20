@@ -1,0 +1,65 @@
+%h1 Class03
+%h2 Topics:
+%ul
+  %li Vectors
+  %li NumPy
+  %li Pandas
+  %li SQL
+
+%h2 Questions and Answers:
+%ul
+  %li What is a Vector?
+  %ul
+    %li I start my definition of a vector to be a collection of numbers.
+    %li Next I say that vectors can be added if they match size.
+    %li For example I could define two vectors and add them:
+    %li vector1 = [1.1,2.2,3.3]
+    %li vector2 = [4.1,5.2,6.3]
+    %li vector1 + vector2 is [5.2, 7.4, 9.6]
+    %li I could then expand the definition to say that I can operate on vectors with arithmetic.
+    %li For example the expression below would be valid:
+    %li vector4 = 2 * vector1 + vector2 / vector1
+    %li vector4 is [2.2,4.4,6.6] + [4.1/1.1, 5.2/2.2, 6.3/3.3]
+    %li vector4 is [2.2+4.1/1.1, 4.4+5.2/2.2, 6.6+6.3/3.3]
+    %li If I want to extend the definition further, I would take a class in Linear Algebra:
+    %li
+      %a(href='https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces' target='x')
+        https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces
+    %li
+      %hr/
+
+  %li In Python how to implement a Vector?
+  %ul
+    %li In Python I use a Numpy array to implement vector:
+    %li
+      %pre
+        %code
+          import numpy as np
+          import numpy as np
+          vector1 = np.array([1.1,2.2,3.3])
+          vector2 = np.array([4.1,5.2,6.3])
+          vector4 = 2 * vector1 + vector2 / vector1
+          print(vector4)
+    %li
+      %hr/
+
+
+  %li Can a Vector contain a mix of numbers and strings?
+  %li What is a Scalar?
+  %li What is a Tensor?
+  %li What is NumPy?
+  %li How to install NumPy?
+  %li What types of NumPy objects are useful?
+  %li What types of NumPy methods are useful?
+  %li Why use NumPy?
+  %li What is Pandas?
+  %li How to install Pandas?
+  %li What types of Pandas objects are useful?
+  %li What types of Pandas methods are useful?
+  %li Why use Pandas?
+  %li What is SQL?
+  %li How to install SQL?
+  %li What types of SQL objects are useful?
+  %li What types of SQL methods are useful?
+  %li Why use SQL?
+  %li How to use NumPy, Pandas, or SQL to interact with a time series?
