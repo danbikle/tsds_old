@@ -50,7 +50,23 @@
       %li I can do arithmetic on numbers but not strings.
       %li
         %hr/
-  %li What is a Scalar?
+  %li
+    What is a Scalar?
+    %ul
+      %li A Scalar is just a number.
+      %li I can use a scalar to 'scale' a vector:
+      %li
+        %pre
+          %code
+            import numpy as np
+	    myscalar = 2.0
+            vector1  = np.array([1.1,2.2,3.3])
+            vector2  = np.array([4.1,5.2,6.3])
+            vector4  = myscalar * vector1 + vector2 / vector1
+            print(vector4)
+      %li
+        %hr/
+
   %li What is a Tensor?
   %li What is NumPy?
   %li How to install NumPy?
