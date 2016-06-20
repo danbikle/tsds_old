@@ -166,8 +166,6 @@
       %li
         %pre
           %code apt-get install sqlite3
-      %li
-        %pre
           %code apt-get install postgres
       %li
         %hr/
@@ -181,6 +179,30 @@
       %li
         %hr/
       
-  %li What types of SQL methods are useful?
-  %li Why use SQL?
-  %li How to use NumPy, Pandas, or SQL to interact with a time series?
+  %li
+    What types of SQL methods are useful?
+    %ul
+      %li select
+      %li sum()
+      %li count()
+      %li avg()
+      %li corr() [ Postgres only ]
+      %li 'Window Functions' [ Postgres only ]
+      %li
+        %hr/
+
+  %li
+    Why use SQL?
+    %ul
+      %li SQL syntax is easy to understand.
+      %li SQL is well suited for tablular data.
+      %li
+        %hr/
+  %li
+    How to use NumPy, Pandas, or SQL to interact with a time series?
+    %ul
+      %li I start with a left-most column which contains date or time.
+      %li Then I add more columns which correspond to observation data for each time-stamp.
+      %li
+        %hr/
+      
