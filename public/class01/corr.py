@@ -1,4 +1,3 @@
-<div class='syntax'><pre><code>
 # corr.py
 
 # For 2016,
@@ -19,15 +18,3 @@ mycorr = np.corrcoef(day1g_sr, day2g_sr)[0,1]
 print(mycorr)
 
 'bye'
-
-<hr />
-Screen dump:
-<br />
-r5@al78:~/tsds/public/class01 $ 
-r5@al78:~/tsds/public/class01 $ python corr.py 
-For 2016,
-Correlation between day1-gain and day2-gain:
--0.124462198358
-r5@al78:~/tsds/public/class01 $ 
-r5@al78:~/tsds/public/class01 $ 
-</code></pre></div>
