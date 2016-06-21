@@ -1,48 +1,52 @@
 %h2 Answers:
 %ul
   %li What are Histograms?
-  %li A histogram converts one dimensional data into a two dimensional visualization which displays 'frequency'.
-  %li For example I could convert a list of SAT scores into a histogram.
-  %li Perhaps a next step would be to compare my SAT score to the histogram:
-  %li
-    %a(href='https://www.google.com/search?q=histogram+of+sat+scores&tbm=isch' target='x')
-      https://www.google.com/search?q=histogram+of+sat+scores&tbm=isch
-  %li After that comparison, I might understand how frequent my score is compared to other's scores.      
-  %li
-    %hr/
+  %ul
+    %li A histogram converts one dimensional data into a two dimensional visualization which displays 'frequency'.
+    %li For example I could convert a list of SAT scores into a histogram.
+    %li Perhaps a next step would be to compare my SAT score to the histogram:
+    %li
+      %a(href='https://www.google.com/search?q=histogram+of+sat+scores&tbm=isch' target='x')
+        https://www.google.com/search?q=histogram+of+sat+scores&tbm=isch
+    %li After that comparison, I might understand how frequent my score is compared to other's scores.      
+    %li
+      %hr/
 
   %li What are Scatter Plots?
-  %li
-    A Scatter Plot is a two dimensional visualization which I use to tell me the relationship between two variables which make up observations.
-  %li Generally a Scatter Plot has an X-Axis and Y-Axis.
-  %li My hope is that Y depends on X.
-  %li I often use a scatter plot to place day1-gain on X-Axis and day2-gain on Y-Axis.
-  %li If day2-gain depends on day1-gain, I might be able to see it in the scatter plot.
-  %li Here is some syntax to create a scatter plot:
-  %li=render 'class03sp2016'
-  %li The above script should give me a plot like this:
-  %li
-    %img(src='/class03/class03sp2016.png')
-  %li
-    %hr/
+  %ul
+    %li
+      A Scatter Plot is a two dimensional visualization which I use to tell me the relationship between two variables which make up observations.
+    %li Generally a Scatter Plot has an X-Axis and Y-Axis.
+    %li My hope is that Y depends on X.
+    %li I often use a scatter plot to place day1-gain on X-Axis and day2-gain on Y-Axis.
+    %li If day2-gain depends on day1-gain, I might be able to see it in the scatter plot.
+    %li Here is some syntax to create a scatter plot:
+    %li=render 'class03sp2016'
+    %li The above script should give me a plot like this:
+    %li
+      %img(src='/class03/class03sp2016.png')
+    %li
+      %hr/
 
   %li What is Correlation?
-  %li Correlation measures how much Y depends on X.
-  %li If day2-gain depends on day1-gain, correlation measures the strength of the dependency.
-  %li If day2-gain is independent of day1-gain, correlation is zero.
-  %li If day2-gain usually increases after a day1-gain increase, correlation should be near +1.
-  %li If day2-gain usually decreases after a day1-gain increase, correlation should be near -1.
-  %li If abs(correlation) > 0.5, I should be able to 'see it' when I put the data in a scatter plot.
-  %li Here is some syntax to calculate correlation.
-  %li=render 'class01corr'
-  %li
-    %hr/
+  %ul
+    %li Correlation measures how much Y depends on X.
+    %li If day2-gain depends on day1-gain, correlation measures the strength of the dependency.
+    %li If day2-gain is independent of day1-gain, correlation is zero.
+    %li If day2-gain usually increases after a day1-gain increase, correlation should be near +1.
+    %li If day2-gain usually decreases after a day1-gain increase, correlation should be near -1.
+    %li If abs(correlation) > 0.5, I should be able to 'see it' when I put the data in a scatter plot.
+    %li Here is some syntax to calculate correlation.
+    %li=render 'class01corr'
+    %li
+      %hr/
 
   %li What is a Time Series Plot?
-  %li A Time Series Plot uses the X-axis to plot either a time stamp or a date.
-  %li Then I use the Y-axis to plot a value like price:
-  %li=render 'class01ts1'
-  %li
-    %img(src='/class01/ts1.png')
-  %li
-    %hr/
+  %ul
+    %li A Time Series Plot uses the X-axis to plot either a time stamp or a date.
+    %li Then I use the Y-axis to plot a value like price:
+    %li=render 'class01ts1'
+    %li
+      %img(src='/class01/ts1.png')
+    %li
+      %hr/
