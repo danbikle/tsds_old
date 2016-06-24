@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# tf021.bash
+# tf022.bash
 
 # This script should feed the gspc data to tf02.py
 

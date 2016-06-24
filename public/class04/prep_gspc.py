@@ -19,7 +19,4 @@ test_df  = data_df[['actual_dir', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'p
 train_df.to_csv('/tmp/gspc_train.csv', float_format='%4.3f', index=False)
 test_df.to_csv( '/tmp/gspc_test.csv' , float_format='%4.3f', index=False)
 
-pdb.set_trace()
-test_df.tail()
-
 'bye'
