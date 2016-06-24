@@ -42,16 +42,12 @@ def extract_data(filename):
     #         row = line.split(",")
     #         labels.append(int(row[0]))
     #         fvecs.append([float(x) for x in row[1:]])
-    mydf = pd.read_csv(filename,header=None)
-    mydf.columns = ['label','x1','x2']
-    pdb.set_trace()
-    labels  = [label for label in mydf['label']]
-    fvecs_a = np.array(mydf[['x1','x2']])
-    # Convert the array of float arrays into a numpy float matrix.
-    fvecs_np = np.matrix(fvecs).astype(np.float32)
 
-    # Convert the array of int labels into a numpy array.
-    labels_np = np.array(labels).astype(dtype=np.uint8)
+    # I should use Pandas and Numpy here:
+    data_df   = pd.read_csv(filename,header=None)
+    data_a    = np.array(data_df)
+    labels_np = data_a[:,0].astype(dtype=np.uint8)
+    fvecs_np  = data_a[:,1:3].astype(np.float32)
 
     # Convert the int numpy array into a one-hot matrix.
     labels_onehot = (np.arange(NUM_LABELS) == labels_np[:, None]).astype(np.float32)
