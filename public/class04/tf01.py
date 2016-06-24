@@ -62,11 +62,10 @@ def main(argv=None):
     # Get the data.
     train_data_filename = FLAGS.train
     test_data_filename = FLAGS.test
-
     # Extract it into numpy matrices.
     train_data,train_labels = extract_data(train_data_filename)
     test_data, test_labels = extract_data(test_data_filename)
-
+    
     # Get the shape of the training data.
     train_size,num_features = train_data.shape
 
@@ -108,8 +107,10 @@ def main(argv=None):
             print( 'Training.')
 
         # Iterate and train.
-        for step in xrange(num_epochs * train_size // BATCH_SIZE):
+        # for step in xrange(num_epochs * train_size // BATCH_SIZE):
+        for step in range(num_epochs * train_size // BATCH_SIZE):
             if verbose:
+                pdb.set_trace()
                 print( step,)
                 
             offset = (step * BATCH_SIZE) % train_size
