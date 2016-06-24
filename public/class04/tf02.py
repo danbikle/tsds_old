@@ -4,7 +4,7 @@
 # https://github.com/jasonbaldridge/try-tf
 
 # Demo:
-# python tf02.py --train try_tf/simdata/moon_data_train.csv --test try_tf/simdata/moon_data_eval.csv --num_epochs 5 --num_hidden 5
+# python tf02.py --train try_tf/simdata/moon_data_train.csv --test try_tf/simdata/moon_data_eval.csv --num_epochs 100 --num_hidden 5
 
 import tensorflow.python.platform
 
