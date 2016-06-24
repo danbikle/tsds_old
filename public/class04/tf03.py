@@ -46,10 +46,12 @@ def main(argv=None):
   
   # I should use Pandas and Numpy here:
   data_df  = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')
-  train_sr = (data_df['cdate'] > '2010') & (data_df['cdate'] < '2016')
+  train_sr = (data_df['cdate'] > '1990') & (data_df['cdate'] < '2016')
   test_sr  =  data_df['cdate'] > '2016'
   train_df = data_df[['actual_dir', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][train_sr]
+  train_df = data_df[['actual_dir', 'pctlag1', 'pctlag2']][train_sr]
   test_df  = data_df[['actual_dir', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][test_sr]
+  test_df  = data_df[['actual_dir', 'pctlag1', 'pctlag2']][test_sr]
   train_a  = np.array(train_df)
   test_a   = np.array(test_df)
   train_data       = train_a[:,1:].astype(np.float32)
