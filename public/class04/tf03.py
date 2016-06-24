@@ -85,5 +85,10 @@ w_hidden = init_weights(
     xavier_params=(num_features, num_hidden))
 
 
+b_hidden = init_weights([1,num_hidden],'zeros')
+
+# The hidden layer.
+hidden = tf.nn.tanh(tf.matmul(x,w_hidden) + b_hidden)
+
 'bye'
 
