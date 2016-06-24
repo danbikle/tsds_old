@@ -110,6 +110,28 @@ correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 
 # Create a local session to run this computation.
+with tf.Session() as s:
+    # Run all the initializers to prepare the trainable parameters.
+	tf.initialize_all_variables().run()
+	if verbose:
+	    print('Initialized!')
+	    print()
+	    print('Training.')
+	    
+	# Iterate and train.
+	for step in range(num_epochs * train_size // BATCH_SIZE):
+	    if verbose:
+	        print(step,)
+	        
+	    offset = (step * BATCH_SIZE) % train_size
+	    batch_data = train_data[offset:(offset + BATCH_SIZE), :]
+	    batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
+	    train_step.run(feed_dict={x: batch_data, y_: batch_labels})
+	    if verbose and offset >= train_size-BATCH_SIZE:
+	        print()
+	print("Accuracy:", accuracy.eval(feed_dict={x: test_data, y_: test_labels}))
+
+tf.app.run()
 
 'bye'
 
