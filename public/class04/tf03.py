@@ -30,20 +30,16 @@ tf.app.flags.DEFINE_boolean('verbose', False, 'Produce verbose output.')
 FLAGS = tf.app.flags.FLAGS
 
 # I should use Pandas and Numpy here:
-data_df = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')
-
-train_test_df = data_df[['cdate','actual_dir', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']]
-
-train_df.head()
-
+data_df  = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')
 train_sr = (data_df['cdate'] > '2010') & (data_df['cdate'] < '2016')
 test_sr  =  data_df['cdate'] > '2016'
-
 train_df = data_df[['actual_dir', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][train_sr]
 test_df  = data_df[['actual_dir', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][test_sr]
 
 pdb.set_trace()
-train_sr.head()
-train_sr.tail()
+train_a = np.array(train_df)
+train_a[:6]
+train_df.head()
+
 'bye'
 
