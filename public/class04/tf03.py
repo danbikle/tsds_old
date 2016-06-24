@@ -5,7 +5,6 @@
 # Demo:
 # python tf03.py
 
-
 import tensorflow.python.platform
 
 import numpy      as np
