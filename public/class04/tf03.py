@@ -35,11 +35,10 @@ train_sr = (data_df['cdate'] > '2010') & (data_df['cdate'] < '2016')
 test_sr  =  data_df['cdate'] > '2016'
 train_df = data_df[['actual_dir', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][train_sr]
 test_df  = data_df[['actual_dir', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][test_sr]
+train_a  = np.array(train_df)
+test_a   = np.array(test_df)
 
 pdb.set_trace()
-train_a = np.array(train_df)
-train_a[:6]
-train_df.head()
-
+test_a[:5]
 'bye'
 
