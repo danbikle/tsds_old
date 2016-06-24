@@ -139,7 +139,7 @@ def main(argv=None):
     	    print('Training.')
     	    
     	# Iterate and train.
-    	for step in xrange(num_epochs * train_size // BATCH_SIZE):
+    	for step in range(num_epochs * train_size // BATCH_SIZE):
     	    if verbose:
     	        print(step,)
     	        
