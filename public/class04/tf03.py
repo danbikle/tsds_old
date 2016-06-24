@@ -45,8 +45,45 @@ test_labels_i_a  = test_a[:,0].astype(dtype=np.uint8)
 # Convert the int numpy array into a one-hot matrix.
 train_labels     = (np.arange(NUM_LABELS) == train_labels_i_a[:, None]).astype(np.float32)
 test_labels      = (np.arange(NUM_LABELS) == test_labels_i_a[:, None]).astype(np.float32)
+    
+# Get the shape of the training data.
+train_size,num_features = train_data.shape
 
-pdb.set_trace()
-test_a[:5]
+# Get the number of epochs for training.
+num_epochs = FLAGS.num_epochs
+
+# Get the size of layer one.
+num_hidden = FLAGS.num_hidden
+
+# This is where training samples and labels are fed to the graph.
+# These placeholder nodes will be fed a batch of training data at each
+# training step using the {feed_dict} argument to the Run() call below.
+x  = tf.placeholder("float", shape=[None, num_features])
+y_ = tf.placeholder("float", shape=[None, NUM_LABELS])
+
+# For the test data, hold the entire dataset in one constant node.
+test_data_node = tf.constant(test_data)
+
+# Init weights method. (Lifted from Delip Rao: http://deliprao.com/archives/100)
+def init_weights(shape, init_method='xavier', xavier_params = (None, None)):
+    if init_method == 'zeros':
+        return tf.Variable(tf.zeros(shape, dtype=tf.float32))
+    elif init_method == 'uniform':
+        return tf.Variable(tf.random_normal(shape, stddev=0.01, dtype=tf.float32))
+    else: #xavier
+        (fan_in, fan_out) = xavier_params
+        low = -4*np.sqrt(6.0/(fan_in + fan_out)) # {sigmoid:4, tanh:1} 
+        high = 4*np.sqrt(6.0/(fan_in + fan_out))
+        return tf.Variable(tf.random_uniform(shape, minval=low, maxval=high, dtype=tf.float32))
+
+# Define and initialize the network.
+
+# Initialize the hidden weights and biases.
+w_hidden = init_weights(
+    [num_features, num_hidden],
+    'xavier',
+    xavier_params=(num_features, num_hidden))
+
+
 'bye'
 
