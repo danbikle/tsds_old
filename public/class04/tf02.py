@@ -85,6 +85,9 @@ def main(argv=None):
     # Get the number of epochs for training.
     num_epochs = FLAGS.num_epochs
 
+    # Get the size of layer one.
+    num_hidden = FLAGS.num_hidden
+ 
     # This is where training samples and labels are fed to the graph.
     # These placeholder nodes will be fed a batch of training data at each
     # training step using the {feed_dict} argument to the Run() call below.
