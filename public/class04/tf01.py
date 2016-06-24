@@ -8,8 +8,10 @@
 
 import tensorflow.python.platform
 
-import numpy as np
+import numpy      as np
 import tensorflow as tf
+import pandas     as pd
+import pdb
 
 # Global variables.
 NUM_LABELS = 2    # The number of labels.
@@ -36,11 +38,15 @@ def extract_data(filename):
 
     # Iterate over the rows, splitting the label from the features. Convert labels
     # to integers and features to floats.
-    for line in file(filename):
-        row = line.split(",")
-        labels.append(int(row[0]))
-        fvecs.append([float(x) for x in row[1:]])
-
+    #     for line in file(filename):
+    #         row = line.split(",")
+    #         labels.append(int(row[0]))
+    #         fvecs.append([float(x) for x in row[1:]])
+    mydf = pd.read_csv(filename,header=None)
+    mydf.columns = ['label','x1','x2']
+    pdb.set_trace()
+    labels  = [label for label in mydf['label']]
+    fvecs_a = np.array(mydf[['x1','x2']])
     # Convert the array of float arrays into a numpy float matrix.
     fvecs_np = np.matrix(fvecs).astype(np.float32)
 
