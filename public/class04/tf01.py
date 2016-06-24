@@ -47,7 +47,7 @@ def extract_data(filename):
     data_df   = pd.read_csv(filename,header=None)
     data_a    = np.array(data_df)
     labels_np = data_a[:,0].astype(dtype=np.uint8)
-    fvecs_np  = data_a[:,1:3].astype(np.float32)
+    fvecs_np  = data_a[:,1:].astype(np.float32)
 
     # Convert the int numpy array into a one-hot matrix.
     labels_onehot = (np.arange(NUM_LABELS) == labels_np[:, None]).astype(np.float32)
