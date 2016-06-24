@@ -108,12 +108,12 @@ def main(argv=None):
 
         # Iterate and train.
         # for step in xrange(num_epochs * train_size // BATCH_SIZE):
-        for step in range(num_epochs * train_size // BATCH_SIZE):
+        for mystep in range(num_epochs * train_size // BATCH_SIZE):
             if verbose:
                 pdb.set_trace()
-                print( step,)
+                print( mystep,)
                 
-            offset = (step * BATCH_SIZE) % train_size
+            offset = (mystep * BATCH_SIZE) % train_size
             batch_data = train_data[offset:(offset + BATCH_SIZE), :]
             batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
             train_step.run(feed_dict={x: batch_data, y_: batch_labels})
