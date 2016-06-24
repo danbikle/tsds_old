@@ -110,8 +110,7 @@ def main(argv=None):
         # for step in xrange(num_epochs * train_size // BATCH_SIZE):
         for mystep in range(num_epochs * train_size // BATCH_SIZE):
             if verbose:
-                pdb.set_trace()
-                print( mystep,)
+                print( mystep)
                 
             offset = (mystep * BATCH_SIZE) % train_size
             batch_data = train_data[offset:(offset + BATCH_SIZE), :]
