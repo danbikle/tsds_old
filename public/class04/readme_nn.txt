@@ -4,12 +4,12 @@ To write a script which demonstrates Neural Networks, I rely on TensorFlow.
 
 I follow these steps.
 
-If I have anaconda3 installed, I move it out of the way:
+If I have anaconda3 installed, I move it out of the way with shell commands:
 
 cd ~
 mv anaconda3 anaconda3backup
 
-Then I install anaconda3:
+Then I install anaconda3 with more shell commands:
 
 cd ~
 curl http://repo.continuum.io/archive/Anaconda3-4.0.0-Linux-x86_64.sh > Anaconda3-4.0.0-Linux-x86_64.sh
@@ -20,17 +20,18 @@ cd ~
 echo 'export PATH=${HOME}/anaconda3/bin:$PATH' >> ~/.bashrc
 bash
 
-Next I install TensorFlow.
+Next I install TensorFlow with one shell command:
 
 pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0-cp35-cp35m-linux_x86_64.whl
 
-Then I clone a simple git repo:
+Then I clone a simple git repo with these shell commands:
 
 cd ~
 rm -rf try-tf
 git clone https://github.com/jasonbaldridge/try-tf
 
-I enhance it so I can run a script with python3:
+Using more shell commands,
+I enhance the repo so I can run a script with python3:
 
 cd ~/try-tf
 sed '/print/s/print/print(/' hidden.py | sed '/print/s/$/)/' > hidden35.py
