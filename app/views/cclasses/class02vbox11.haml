@@ -21,13 +21,13 @@
 
 %p Mac should import the file into VirtualBox for me.
 
-%p After the import, I should have a virtualbox instance in my VirtualBox GUI:
+%p After the import, I should have a virtualbox instance (a guest) in my VirtualBox GUI:
 
 %img(src='/class02/class02vbox10a.png')
 
-%p I should click on the start-arrow in the GUI.
+%p I should click on the start-arrow in the GUI to start the guest-Linux.
 
-%p The instance should boot smoothly.
+%p The guest should boot smoothly.
 
 %p If not, I will probably need to tinker with the Network settings.
 
@@ -35,9 +35,11 @@
 
 %img(src='/class02/class02vbox10b.png')
 
-%p When I tinker with networking, usually the first thing I try is to disable adapter 2.
+%p When I tinker with networking, usually the first thing I try is to disable Adapter 2,3,4.
 %p Another easy control to play with is the select-option-field called 'Name'.
-%p In the above image, Name-field contains value: enp59s0, which is probably wrong.
+%p
+  In the above image, Name-field contains value: enp59s0, which is okay on my host-laptop
+  but probably wrong on your laptop.
 
 %p After getting networking right and then clicking the start-arrow, I should eventually see this screen:
   
