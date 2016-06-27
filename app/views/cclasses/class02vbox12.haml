@@ -1,0 +1,63 @@
+%h2 Class02 Lab Answer:
+%h2 Learn about Virtualbox network settings
+
+%p To start this lab, I should start the virtualbox-GUI and then click on settings for one of the instances:
+
+%img(src='/class02/class02vbox12a.png')
+
+%p I notice that this instance allows me to configure four adapters.
+
+%p A little bit of networking knowledge here can go a long way.
+
+%p
+  With a real laptop I can actually see one of the adapters.
+  It is a port on the side which accepts an ethernet cable.
+  Another adapter I know about, but cannot see, is the WIFI adapter.
+
+%p
+  I usually ignore the ethernet adapter and configure only the WIFI adapter.
+
+%p
+  Often I configure the WIFI adapter so it gets an IP address from a DHCP server inside a local WIFI router.
+
+%p
+  So, to connect my laptop to WIFI is usually easy.
+
+%p
+  I can use this same thinking process when I configure adapters of a virtualbox instance.
+
+%p
+  A good place to start is to disable Adapter 2, 3, 4.
+  
+%p
+  Then I enable Adapter 1 so it looks something like this:
+%img(src='/class02/class02vbox12a.png')
+
+%p
+  I need to be aware that an adapter has not one, but two configurations.
+
+%p
+  The first configuration is done by the virtualbox-GUI.
+  
+%p
+  The second configuration is done by a GUI inside of Linux after it has booted.
+  
+%p
+  When the instance boots up and sees the above configuration, it thinks that I have plugged
+  an ethernet cable into Adapter 1.
+
+%p
+  Later I can login to the instance and configure the Linux side of the adapter.
+  Usually when I do that, I tell Linux that I want Linux to get an IP address
+  from a DHCP server.
+
+%p
+  Usually at that point I am done with network configuration for that instance.
+
+%p
+  Sometimes I might want to enable Adpater 2 using the virtualbox-GUI. 
+
+%p
+  If I do that, a good use of Adapter 2 is to support ssh traffic from users who
+  want to login to the virtualbox instance.
+  
