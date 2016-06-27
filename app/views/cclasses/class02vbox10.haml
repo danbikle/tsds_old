@@ -1,0 +1,66 @@
+%h2 Class02 Lab Answer:
+%h2 Install Virtualbox to your laptop
+
+%p
+  If I am on a Mac, this is an easy lab.  I just download software from this URL:
+%p
+  %a(href='https://www.virtualbox.org/wiki/Downloads' target='x')
+    https://www.virtualbox.org/wiki/Downloads
+%p Then I just click on the downloaded file and follow the directions.
+%hr/
+%p
+  If I am on windows, this might be a difficult lab.  I download software from this URL:
+%p
+  %a(href='https://www.virtualbox.org/wiki/Downloads' target='x')
+    https://www.virtualbox.org/wiki/Downloads
+    
+%p Then I click on the downloaded file and follow the directions.
+%p After installation, VirtualBox should be installed in my Windows-Apps collection.
+%p When I click on it, the VirtualBox GUI should appear.
+
+%p If I see it, I download an OVA file which should contain Linux:
+%p
+  %a(href='https://s3-us-west-2.amazonaws.com/bikleiq/ubsmall2016_0409.ova' target='x')
+    https://s3-us-west-2.amazonaws.com/bikleiq/ubsmall2016_0409.ova
+
+%p After download, I should click on the OVA file.
+
+%p Windows should import the file into VirtualBox for me.
+
+%p If that import goes smoothly, I am lucky.
+
+%p After the import, I should have a virtualbox instance in my VirtualBox GUI:
+
+%img(src='/class02/class02vbox10a.png')
+
+%p I should click on the instance-icon in the GUI.
+
+%p If the instance boots smoothly, I am lucky.
+
+%p If I see errors I probably need help.
+
+%p
+  Two common errors I see on VirtualBox on windows:
+  %ul
+    %li Windows is configured with Virtualization 'off' (very common problem).
+    %li
+      VirtualBox is confused by the network card on the laptop:
+      %ul
+        %li Fix by tinkering the network settings in VirtualBox.
+        %li Get help from someone who uses VirtualBox a lot.
+
+%p The easiest way to turn on Virtualization is to find a youtube video:
+%p
+  %a(href='http://www.google.com/search?q=windows+virtualization+bios+uefi+site:youtube.com' target='x')
+    http://www.google.com/search?q=windows+virtualization+bios+uefi+site:youtube.com
+
+%p Here is what the network settings look like in the GUI:
+
+%img(src='/class02/class02vbox10b.png')
+
+%p When I tinker with networking, usually the first thing I try is to disable adapter 2.
+%p Another easy control to play with is the select-option-field called 'Name'.
+%p In the above image, Name-field contains value: enp59s0, which is probably wrong.
+
+  
+
