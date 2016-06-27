@@ -74,7 +74,7 @@
 
 %p With that small piece of information, I can now configure Adpater 2 of the 'guest'.
 
-%p I display some images below which contains clues on how to do this:
+%p I display some images below which contain clues on how to do this:
 %img(src='/class02/class02vbox12d.png')
 %br/
 %img(src='/class02/class02vbox12e.png')
@@ -84,3 +84,20 @@
 %p
   In the above example, the 'guest' is configured to listen for traffic at 192.168.1.101
   if that traffic comes from adapter: enp59s0 on the 'host'.
+
+%p
+  Note that the MAC Address 080027248D74 in the virtualbox-GUI,
+  mathches the Device MAC Address 08:00:27:24:8D:74 in the Linux-guest-GUI.
+
+%p The above discussion is a good example of a virtualbox bridged adapter configuration.
+
+%p
+  It is called a bridged configuration because I see it as creating a bridge
+  between a guest-adapter and a host-adapter.
+
+%p It is easy to find discussion about this topic via google:
+
+%p
+  %a(href='http://www.google.com/search?q=how+to+setup+virtualbox+bridged+adapter' target='x')
+    http://www.google.com/search?q=how+to+setup+virtualbox+bridged+adapter
+  
