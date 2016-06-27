@@ -1,0 +1,49 @@
+%h2 Class02 Lab Answer:
+%h2 Install this ova file into your Virtualbox:
+
+%p
+  %a(href='https://s3-us-west-2.amazonaws.com/bikleiq/ubsmall2016_0409.ova' target='x')
+    https://s3-us-west-2.amazonaws.com/bikleiq/ubsmall2016_0409.ova
+
+%p
+  If I am on a Mac, this is an easy lab.  I just download software from this URL:
+%p
+  %a(href='https://www.virtualbox.org/wiki/Downloads' target='x')
+    https://www.virtualbox.org/wiki/Downloads
+%p Then I just click on the downloaded file and follow the directions.
+%p After I install VirtualBox, I download 
+%a(href='https://s3-us-west-2.amazonaws.com/bikleiq/ubsmall2016_0409.ova' target='x')
+  https://s3-us-west-2.amazonaws.com/bikleiq/ubsmall2016_0409.ova
+into ~/Downloads.
+
+%p Then I click on the OVA file after the download.
+
+%p Mac should import the file into VirtualBox for me.
+
+%p After the import, I should have a virtualbox instance in my VirtualBox GUI:
+
+%img(src='/class02/class02vbox10a.png')
+
+%p I should click on the instance-icon in the GUI.
+
+%p The instance should boot smoothly.
+
+%p If not, I will probably need to tinker with the Network settings.
+
+%p Here is what the network settings look like in the GUI:
+
+%img(src='/class02/class02vbox10b.png')
+
+%p When I tinker with networking, usually the first thing I try is to disable adapter 2.
+%p Another easy control to play with is the select-option-field called 'Name'.
+%p In the above image, Name-field contains value: enp59s0, which is probably wrong.
+
+%p After getting networking right and then clicking the start-arrow, I should eventually see this screen:
+  
+%img(src='/class02/class02vbox10c.png')
+
+%p The ann account has the password set to 'a':
+
+%img(src='/class02/class02vbox10d.png')
+
+%hr/
