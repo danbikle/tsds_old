@@ -34,30 +34,53 @@
 %img(src='/class02/class02vbox12a.png')
 
 %p
-  I need to be aware that an adapter has not one, but two configurations.
+  I need to be aware that each adapter has not one, but two configurations.
 
 %p
   The first configuration is done by the virtualbox-GUI.
-  
-%p
-  The second configuration is done by a GUI inside of Linux after it has booted.
   
 %p
   When the instance boots up and sees the above configuration, it thinks that I have plugged
   an ethernet cable into Adapter 1.
 
 %p
-  Later I can login to the instance and configure the Linux side of the adapter.
-  Usually when I do that, I tell Linux that I want Linux to get an IP address
-  from a DHCP server.
+  The second configuration is done by a GUI inside of Linux after it has booted:
+%img(src='/class02/class02vbox12b.png')
+
+%p
+  One mistake I have made in the past is to configure Adapter 1 in virtualbox-GUI and then
+  configure the wrong adapter in the Linux GUI.
+  I avoid this mistake in the above images be noting that the MAC Address 080027B63DB6 matches the
+  Hardware Address in the Linux GUI: 08:00:27:B6:3D:B6
 
 %p
   Usually at that point I am done with network configuration for that instance.
 
 %p
-  Sometimes I might want to enable Adpater 2 using the virtualbox-GUI. 
+  Sometimes I might want to configure Adpater 2 of the instance so it will support
+  ssh traffic from users who want to login to the virtualbox instance.
 
 %p
-  If I do that, a good use of Adapter 2 is to support ssh traffic from users who
-  want to login to the virtualbox instance.
-  
+  To set this up, I need to understand that the virtualbox instance (the 'guest')
+  depends on the physical adapter of my laptop (the 'host').
+
+%p I use a shell command on the host to give me inormation about the physical adapter:
+
+.syntax
+  %pre
+    =render 'class02vbox12c'
+
+%p The ifconfig command tells me the physical adapter is called: 'enp59s0'.
+
+%p With that small piece of information, I can now configure Adpater 2 of the 'guest'.
+
+%p I display some images below which contains clues on how to do this:
+%img(src='/class02/class02vbox12d.png')
+%br/
+%img(src='/class02/class02vbox12e.png')
+%br/
+%img(src='/class02/class02vbox12f.png')
+
+%p
+  In the above example, the 'guest' is configured to listen for traffic at 192.168.1.101
+  if that traffic comes from adapter: enp59s0 on the 'host'.
