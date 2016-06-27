@@ -73,7 +73,7 @@
     Once I have a PEM file where to store it?
     %ul
       %li I give it a simple name like aws1.pem
-      %li I put in this folder: ~/.ssh/
+      %li I put it in this folder: ~/.ssh/
       %li
         %hr/
   %li
@@ -85,16 +85,33 @@
           %code ssh -i ~/.ssh/aws1.pem ubuntu@someip
       %li
         %hr/
-  %li Is it possible to deploy a copy www.spy611.com to EC2?
-  %li Yes.
-  %li What is S3?
-  %li S3 is an Amazon service I use to store and serve large files
+  %li
+    Is it possible to deploy a copy www.spy611.com to EC2?
+    %ul
+      %li Yes.
+      %li Directions:
+      %li
+        %a(href='http://www.spy611.com/software/spy611aws' target='x')
+          http://www.spy611.com/software/spy611aws
+      %li
+        %hr/
+  
+  %li
+    What is S3?
+    %ul
+      %li S3 is an Amazon service I use to store and serve large files.
+      %li
+        %hr/
   %li
     How to get started with S3?
     %ul
       %li Use the web-UI to create a bucket with a unique name.
       %li Use the web-UI to upload files into the bucket.
       %li Use the web-UI to make the files public or private.
+      %li
+        Use the shell to interact with S3:
+        %a(href='http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html' target='x')
+          http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html
       %li
         %hr/
   %li
@@ -103,11 +120,17 @@
       %li It's cheap.
       %li It's popular.
       %li It's useful.
+      %li Most Data Scientists will encounter S3; that is where the data is.
       %li
         %hr/
 
-  %li Can I use a PEM file to access S3?
-  %li Probably not.
+  %li
+    Can I use a PEM file to access S3?
+    %ul
+      %li Probably not.
+      %li
+        %hr/
+
   %li
     Linux vs Mac vs Windows, what is the data scientist opinion?
     %ul
@@ -115,6 +138,7 @@
       %li If you need to use Excel, Windows is a good choice.
       %li If you can affort it, Mac is best.
       %li Linux offers the best software installation experience.
+      %li To build then host a Data Science App, Linux is best.
       %li
         %hr/
   %li
@@ -129,23 +153,46 @@
       %li
         %hr/
 
-  %li Which flavor of Linux should I learn first?
-  %li Ubuntu 14.04 or Ubuntu 16.04
-  %li How is AWS Linux different than Laptop Linux?
-  %li No access to GUI tools.
-  %li How to get help with Linux?
   %li
-    Site:
-    %a(href='http://askubuntu.com/' target='x')
-      http://askubuntu.com/
+    Which flavor of Linux should I learn first?
+    %ul
+      %li Ubuntu 14.04 or Ubuntu 16.04
+      %li
+        %hr/
+  %li
+    How is AWS Linux different than Laptop Linux?
+    %ul
+      %li No access to GUI tools.
+      %li Variable cost (by the hour).
+      %li Access to internet is excellent.
+      %li Easy to setup.
+      %li Easy to backup.
+      %li Easy to duplicate.
+      %li Easy to scale.
+      %li
+        %hr/
+  %li
+    How to get help with Linux?
+    %ul
+      %li
+        Site:
+        %a(href='http://askubuntu.com' target='x')
+          http://askubuntu.com
+      %li
+        %hr/
   
-  %li What is Git?
-  %li Git is software to store and share groups of files.
+  %li
+    What is Git?
+    %ul
+      %li Git is software to store and share groups of files.
   %li
     Why use git?
     %ul
       %li I use git store and share groups of files.
       %li I use git to 'time-travel' when I work with software.
+      %li I use git to see differences between similar software.
+      %li I use git to deploy software to heroku and EC2.
+      %li I use git to present syntax to students.
       %li
         %hr/
   %li
@@ -163,7 +210,7 @@
     What is Heroku?
     %ul
       %li Heroku allows me to serve my websites for free.
-      %li I use git to copy HTML from laptop into Heroku.
+      %li I use git to copy website from laptop into Heroku.
       %li
         %hr/
   %li
