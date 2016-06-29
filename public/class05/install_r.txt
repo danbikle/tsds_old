@@ -1,0 +1,3 @@
+~/tsds/public/class05/install_r.txt
+
+I use apt-get to install R.
