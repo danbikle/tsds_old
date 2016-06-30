@@ -4,38 +4,29 @@
 # Demo:
 # R -f linreg.r
 
-csv_l = read.csv('somepredictions.csv')
-head(csv_l)
+# As of today, allpredictions.csv contains 8955 rows.
+# 8900 - 2600 is 6300 is 6300 days is 25 years:
+csv_l = read.csv('http://www.spy611.com/csv/allpredictions.csv')[c(2600:8900) , ]
+tail(csv_l)
 summary(csv_l$pctlag1)
 
-x_l = csv_l[ , c(4:6)]
-head(x_l)
-summary(x_l)
-typeof(x_l)
-
-y_is = csv_l[ , 3]
-head(y_is)
-
 # Now I should learn:
-mymodel = lm(y_is ~ pctlag1 + pctlag2 + pctlag4, data=x_l)
+mymodel = lm(pctlead ~ pctlag1 + pctlag2 + pctlag4 + pctlag8 + pctlag16, data=csv_l)
 mymodel
-
-# Now I should predict one observation:
-firstx = x_l[1,]
-aprediction = predict(mymodel,firstx)
-aprediction
+# The above model assumes that pctlead relies somewhat on pctlag1,2,4,8,16
 
 # Now I should predict one observation (quiet day):
-just1x = list(pctlag1=0.001,pctlag2=0.001,pctlag4=0.001)
-aprediction = predict(mymodel,just1x)
-aprediction
+just1x = list(pctlag1=0.001,pctlag2=0.001,pctlag4=0.001,pctlag8=0.001,pctlag16=0.001)
+pctlead_prediction = predict(mymodel,just1x)
+pctlead_prediction
 
 # Now I should predict one observation (strong down day):
-just1x = list(pctlag1=-2.1,pctlag2=-3.1,pctlag4=-3.2)
-aprediction = predict(mymodel,just1x)
-aprediction
+just1x = list(pctlag1=-2.1,pctlag2=-2.2,pctlag4=-2.4,pctlag8=-2.8,pctlag16=-2.16)
+pctlead_prediction = predict(mymodel,just1x)
+pctlead_prediction
 
 # Now I should predict one observation (strong up day):
-just1x = list(pctlag1=2.1,pctlag2=2.4,pctlag4=3.2)
-aprediction = predict(mymodel,just1x)
-aprediction
+just1x = list(pctlag1=2.1,pctlag2=2.2,pctlag4=2.4,pctlag8=2.8,pctlag16=2.16)
+pctlead_prediction = predict(mymodel,just1x)
+pctlead_prediction
+
