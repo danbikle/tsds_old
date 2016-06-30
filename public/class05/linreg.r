@@ -8,8 +8,6 @@
 # 8900 - 2600 is 6300 is 6300 days is 25 years.
 # I should learn from 25 years of data:
 csv_l = read.csv('http://www.spy611.com/csv/allpredictions.csv')[c(2600:8900) , ]
-head(csv_l)
-tail(csv_l)
 
 # Now I should learn:
 mymodel = lm(pctlead ~ pctlag1 + pctlag2 + pctlag4 + pctlag8 + pctlag16, data=csv_l)

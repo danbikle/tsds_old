@@ -4,32 +4,45 @@
 # Demo:
 # python linreg.py
 
-# As of today, allpredictions.csv contains 8955 rows.
-# 8900 - 2600 is 6300 is 6300 days is 25 years.
-# I should learn from 25 years of data:
-
-import pdb
 import pandas as pd
 import numpy  as np
 
+# As of today, allpredictions.csv contains 8955 rows.
+# 8900 - 2600 is 6300 is 6300 days is 25 years.
+# I should learn from 25 years of data:
 csv_df = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')[2599:8900]
 
 train_df = csv_df[['pctlead', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']]
 train_a  = np.array(train_df)
 
-pdb.set_trace()
-csv_df.tail()
-train_a[-4:]
-
 x_train_a = train_a[:,1:]
-y_train_a = train_a[:,0]
+pctlead_a = train_a[:,0]
 
-# I should learn from x_train_a,y_train_a:
+# Now I should learn from x_train_a,pctlead_a:
 from sklearn import linear_model
 clf_lr = linear_model.LinearRegression()
-clf_lr.fit(x_train_a, y_train_a)
+clf_lr.fit(x_train_a, pctlead_a)
 
-# Now that I have learned, I should predict:
+print('Intercept:')
+print(clf_lr.intercept_)
+print('Coefficients:')
+print(clf_lr.coef_)
+# The above model assumes that pctlead relies somewhat on pctlag1,2,4,8,16
 
-'bye'
-# 
+# Now I should predict one observation (quiet day):
+just1x = [[0.001, 0.001, 0.001, 0.001, 0.001]]
+pctlead_prediction = clf_lr.predict(just1x)[0]
+print('quiet day prediction:')
+print(pctlead_prediction)
+
+# Now I should predict one observation (strong down day):
+just1x = [[-2.1, -2.2, -2.4, -2.8, -2.16]]
+pctlead_prediction = clf_lr.predict(just1x)[0]
+print('down day prediction:')
+print(pctlead_prediction)
+
+# Now I should predict one observation (strong up day):
+just1x = [[2.1, 2.2, 2.4, 2.8, 2.16]]
+pctlead_prediction = clf_lr.predict(just1x)[0]
+print('up day prediction:')
+print(pctlead_prediction)
