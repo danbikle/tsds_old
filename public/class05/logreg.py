@@ -35,18 +35,18 @@ print(clf_lr.coef_)
 
 # Now I should predict one observation (quiet day):
 just1x = [[0.001, 0.001, 0.001, 0.001, 0.001]]
-updown_prediction = clf_lr.predict_proba(just1x)[0]
+updown_prediction = clf_lr.predict_proba(just1x)[0,1]
 print('quiet day prediction:')
 print(updown_prediction)
 
 # Now I should predict one observation (strong down day):
 just1x = [[-2.1, -2.2, -2.4, -2.8, -2.16]]
-updown_prediction = clf_lr.predict_proba(just1x)[0]
+updown_prediction = clf_lr.predict_proba(just1x)[0,1]
 print('down day prediction:')
 print(updown_prediction)
 
 # Now I should predict one observation (strong up day):
 just1x = [[2.1, 2.2, 2.4, 2.8, 2.16]]
-updown_prediction = clf_lr.predict_proba(just1x)[0]
+updown_prediction = clf_lr.predict_proba(just1x)[0,1]
 print('up day prediction:')
 print(updown_prediction)
