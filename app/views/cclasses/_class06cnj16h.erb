@@ -19,6 +19,14 @@
   &lt;script src="convnet_trainers.js" >&lt;/script>
   &lt;script src="convnet_magicnet.js" >&lt;/script>
   &lt;script src="convnet_export.js" >&lt;/script>
+  
+  &lt;script>
+    /* The allpredictions.js file gives me a giant string called mycsv_s.
+       I use D3.js to transform mycsv_s into an array called: mycsv_a.
+    */
+    var mycsv_a = d3.csvParse(mycsv_s)
+    'bye'
+  &lt;/script>
 
 &lt;/html>
 </code>
