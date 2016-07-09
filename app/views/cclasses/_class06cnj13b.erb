@@ -8,11 +8,19 @@
     var ima_o = {'k1': ima_s, 'k2': ima_a} // Im object
     ima_o['k2'][2] // What am i?
     ima_o.k1[2]    // What am i?
-
+    
+    // Usually I use this kind of loop:
     for(var i=0;i&lt;5;i++) {
       ima_i = ima_i + i
       'Im ina loop'                      
     }
+
+    // Sometimes I use this kind of loop:
+    ima_a.forEach(function(thng) {
+      'Im ina loop too'
+      'thng is...:'
+      thng
+    })
                          
     'bye'
   &lt;/script>
