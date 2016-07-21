@@ -33,6 +33,10 @@ pctlead_a = 100.0 * (lead_a - cp_a) / cp_a
 dateppl_df            = datepp_df.copy() # first 3 columns
 dateppl_df['pctlead'] = list(pctlead_a) # 4th
 
+#
+# Create DataFrame column named accuracy and fill it
+# ########################################################
+
 # Create a predicate to give me all positive predictions:
 
 posp_sr = (dateppl_df['prob_lr'] >= 0.5)
@@ -70,6 +74,7 @@ dateppla_df.loc[fn_sr,'accuracy'] = 'False Negative'
 unk_sr = (dateppla_df['accuracy'] == 'unknown')
 np.sum([int(bool) for bool in unk_sr]) == 0 # Should be true
 
+# I should look at it:
 print(dateppla_df[-22:])
 
 'bye'
