@@ -122,7 +122,7 @@ print(datepplaele_df[-22:])
 
 # I should start this effort by creating a DF from 2016 data.
 
-y2016_sr = (datepplaele_df['cdate'] > '2016') & (datepplaele_df['cdate'] < '2017')
+y2016_sr = (datepplaele_df['cdate'] > '2016') & (datepplaele_df['cdate'] &lt; '2017')
 y2016_df = datepplaele_df[y2016_sr]
 
 # I should count all predictions.
@@ -142,7 +142,7 @@ lo_agg_acc = np.round(100.0 * lo_tp_i / allp_count_i)
 print('For 2016, Aggregated Long-Only Accuracy is:')
 print(str(lo_agg_acc)+'%')
 
-# For LR, I should count all the true-positive,true-negative predictions:
+# For LR, I should count all the true-positive and true-negative predictions:
 lr_tp_sr = (y2016_df['accuracy'] == 'True Positive')
 lr_tn_sr = (y2016_df['accuracy'] == 'True Negative')
 lr_tp_i  = len([ 1 for tf in lr_tp_sr if tf ])
@@ -160,9 +160,15 @@ lr_posp_f   = np.round(100.0 * lr_posp_i / allp_count_i)
 print('For 2016, Logistic Regression issued Positive Predictions:')
 print(str(lr_posp_f)+'% of the time')
 
-import pdb
-#pdb.set_trace()
-y2016_df.head()
+# For LR, I should display the confusion matrix:
+lr_fp_sr = (y2016_df['accuracy'] == 'False Positive')
+lr_fn_sr = (y2016_df['accuracy'] == 'False Negative')
+lr_fp_i  = len([ 1 for tf in lr_fp_sr if tf ])
+lr_fn_i  = len([ 1 for tf in lr_fn_sr if tf ])
+print('For 2016, Logistic Regression Confusion Matrix:')
+print('True Positives Count: '  + str(lr_tp_i) + '|' + 'False Positives Count: ' + str(lr_fp_i))
+print('False Negatives Count: ' + str(lr_fn_i) + '|' + 'True Negatives Count: '  + str(lr_tn_i))
 
 'bye'
+
 </code>
