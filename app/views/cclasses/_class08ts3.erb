@@ -1,12 +1,12 @@
 <code class='python'>
-# class08k.py
+# class08l.py
 
 # This script should help me do the lab of class08.
 # Ref:
 # http://www.tsds4.us/cclasses/class08#lab
 
 # Demo:
-# python class08k.py
+# python class08l.py
 
 import pandas as pd
 import numpy  as np
@@ -194,8 +194,8 @@ print('2016 Logistic Regression Effectiveness Sum:')
 print(lr_effectiveness_sum)
 
 #
-# For 2016, Visualize Long-Only Effectiveness with a Time-Series Plot
-#######################################################################
+# For 2016, Visualize Logistic Regression Effectiveness with a Time-Series Plot
+###############################################################################
 
 # I should get a list of dates:
 from datetime import datetime
@@ -205,7 +205,7 @@ cdate_l = [datetime.strptime(dt_s,'%Y-%m-%d') for dt_s in y2016_df['cdate']]
 eff_l = [0.0] # This will be a running sum.
 eff_i = 0     # Integer navigator.
 
-for eff_f in y2016_df['longonly_effectiveness']:
+for eff_f in y2016_df['effectiveness']:
   # I should add to the running sum:
   eff_l.append( eff_l[eff_i] + eff_f )
   eff_i += 1 # I should track where I am.
