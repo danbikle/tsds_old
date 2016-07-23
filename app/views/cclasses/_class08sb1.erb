@@ -1,12 +1,12 @@
-<code class='bash'>
-# class08i.py
+<code class='python'>
+# class08j.py
 
 # This script should help me do the lab of class08.
 # Ref:
 # http://www.tsds4.us/cclasses/class08#lab
 
 # Demo:
-# python class08i.py
+# python class08j.py
 
 import pandas as pd
 import numpy  as np
@@ -192,6 +192,36 @@ print(long_only_effectiveness_sum)
 
 print('2016 Logistic Regression Effectiveness Sum:')
 print(lr_effectiveness_sum)
+
+#
+# For 2016, Use a stacked bar-chart to visualize Accuracy
+############################################################
+import matplotlib.pyplot as plt
+
+mpl_fig     = plt.figure()
+ax          = mpl_fig.add_subplot(111)
+barcount    = 2
+trueCounts  = (lr_tp_i, lr_tn_i)
+falseCounts = (lr_fp_i, lr_fn_i)
+
+ind   = np.arange(barcount) # the x locations for the bars
+width = 0.49                # the width of the bars
+
+ax.bar(ind, trueCounts,  width, color=(0.0,0.7,0.0))
+ax.bar(ind, falseCounts, width, color=(0.7,0.0,0.0), bottom=trueCounts)
+ax.set_ylabel('True Green Bottom, False Red Top')
+ax.set_xlabel('Prediction Types')
+ax.set_title('Accuracy Stacked Bar Chart')
+
+ax.set_xticks(ind + width/2.)
+
+# I should use prediction counts to set height of plot:
+ytics_f = 1.2 * np.max([lr_tp_i+lr_tn_i, lr_fp_i+lr_fn_i])
+
+ax.set_yticks(np.arange(0, ytics_f, 10))
+ax.set_xticklabels(('Positive', 'Negative'))
+
+plt.show()
 
 'bye'
 </code>
