@@ -15,32 +15,15 @@
 
 %p The last time I created an ssh-key-pair, I saw this:
 
-ann@dev06:~$ 
-ann@dev06:~$ ssh-keygen -t rsa
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/ann/.ssh/id_rsa): 
-Created directory '/home/ann/.ssh'.
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /home/ann/.ssh/id_rsa.
-Your public key has been saved in /home/ann/.ssh/id_rsa.pub.
-The key fingerprint is:
-7c:73:e0:26:8b:62:f6:a4:1d:78:22:e5:cd:3a:5c:eb ann@dev06
-The key randomart image is:
-+--[ RSA 2048]----+
-|                 |
-|                 |
-|          .      |
-|       . . .     |
-|    .   S = .    |
-|   o +.. = o     |
-|  ..B.B..        |
-|   +oX..         |
-|    ooE          |
-+-----------------+
-ann@dev06:~$ 
-ann@dev06:~$ 
-ann@dev06:~$ 
+.syntax
+  %pre
+    =render 'class09d012'
+
+%p The file, ~/.ssh/id_rsa.pub, is a file I share with the public (in this case, DigitalOcean).
+
+%p It is like the lock on your car-door; it is exposed to the public.
+
+%p Anyone who has the private-key can unlock it.
 
 %p
   %a(href='class09#lab')
