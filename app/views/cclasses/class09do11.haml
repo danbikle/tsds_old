@@ -1,0 +1,47 @@
+%h2 Class09 Lab Answer:
+%h2 Login to Droplet as root
+
+%p I started this lab by creating an ssh-key.
+
+%p If you already have an ssh-key, you don't need a new one.
+
+%p I use a simple shell command to create a new key (actually it is a pair of keys).
+
+.syntax
+  %pre
+    %code.bash ssh-keygen -t rsa
+
+%p When it asks me for a passphrase, I just press the enter-key twice.
+
+%p The last time I created an ssh-key-pair, I saw this:
+
+ann@dev06:~$ 
+ann@dev06:~$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ann/.ssh/id_rsa): 
+Created directory '/home/ann/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/ann/.ssh/id_rsa.
+Your public key has been saved in /home/ann/.ssh/id_rsa.pub.
+The key fingerprint is:
+7c:73:e0:26:8b:62:f6:a4:1d:78:22:e5:cd:3a:5c:eb ann@dev06
+The key randomart image is:
++--[ RSA 2048]----+
+|                 |
+|                 |
+|          .      |
+|       . . .     |
+|    .   S = .    |
+|   o +.. = o     |
+|  ..B.B..        |
+|   +oX..         |
+|    ooE          |
++-----------------+
+ann@dev06:~$ 
+ann@dev06:~$ 
+ann@dev06:~$ 
+
+%p
+  %a(href='class09#lab')
+    Class09 Lab
