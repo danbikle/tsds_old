@@ -7,6 +7,14 @@
   %pre
     =render 'class09ra1'
 
+%p Next I login to a development account.
+
+%p I use a development account named ann; I don't do development in the root account:
+
+.syntax
+  %pre
+    %code.bash ssh ann@localhost
+
 %p Next I clone a repo named rbenv to my home folder:
 
 .syntax
@@ -18,6 +26,12 @@
 .syntax
   %pre
     =render 'class09ra3'
+
+%p After I install Ruby 2.3.1, I should see something like this:
+
+.syntax
+  %pre
+    =render 'class09ra4'
 
 %p
   %a(href='class09#lab')
