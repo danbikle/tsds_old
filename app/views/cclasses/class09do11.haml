@@ -1,30 +1,32 @@
 %h2 Class09 Lab Answer:
 %h2 Login to Droplet as root
 
-%p I started this lab by creating an ssh-key.
+%p I started this lab by memorizing the ip address displayed next to my new Droplet:
 
-%p If you already have an ssh-key, you don't need a new one.
+%p 138.68.11.196
 
-%p I use a simple shell command to create a new key (actually it is a pair of keys).
+%p Next I placed a simple entry in a file called ~/.ssh/config
 
-.syntax
-  %pre
-    %code.bash ssh-keygen -t rsa
+%p If you don't have a .ssh/config file, you should create one now.
 
-%p When it asks me for a passphrase, I just press the enter-key twice.
-
-%p The last time I created an ssh-key-pair, I saw this:
+%p The syntax I typed into ~/.ssh/config looks like this:
 
 .syntax
   %pre
-    =render 'class09d012'
+    =render 'class09do13'
 
-%p The file, ~/.ssh/id_rsa.pub, is a file I share with the public (in this case, DigitalOcean).
+%p Next, I typed in a simple shell command:
 
-%p It is like the lock on your car-door; it is exposed to the public.
+.syntax
+  %pre
+    %code.bash ssh dig10
 
-%p Anyone who has the private-key can unlock it.
+%p DigitalOcean let me in; I saw this:
 
-%p
-  %a(href='class09#lab')
-    Class09 Lab
+.syntax
+  %pre
+    =render 'class09do14'
+
+%p Notice that I shutdown the Droplet.
+%p DigitalOcean charged $0.03 to my credit card.
+
