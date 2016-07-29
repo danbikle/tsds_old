@@ -1,6 +1,7 @@
 %h2 Class09 Lab Answer:
 %h2 Install Ruby 2.3.1 
 
+%p I did this lab on my laptop; you can do this lab on your DigitalOcean host if you have one.
 %p I start by enhancing Ubuntu with some shell commands:
 
 .syntax
@@ -9,7 +10,17 @@
 
 %p Next I login to a development account.
 
-%p I use a development account named ann; I don't do development in the root account:
+%p I use a development account named ann; I don't do development in the root account.
+
+%p It is easy to create a development account named ann:
+
+.syntax
+  %pre
+    %code.bash
+      sudo useradd -m -s /bin/bash ann
+      sudo passwd ann
+
+%p After I create the ann account, I can login:
 
 .syntax
   %pre
