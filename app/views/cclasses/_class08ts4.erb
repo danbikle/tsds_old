@@ -213,7 +213,7 @@ for eff_f in y2016_df['effectiveness']:
   if eff_i < len_i-1:
     eff_i += 1 # I should track where I am.
     # I should track blue_line delta:
-    blue_delt_f = blue_l[eff_i] - blue_l[eff_i-1]
+    blue_delt_f = np.abs(blue_l[eff_i] - blue_l[eff_i-1])
     # I should add to the green line:
     if eff_f > 0:
       green_l.append( green_l[eff_i-1] + blue_delt_f )
