@@ -10,7 +10,7 @@ ssh ann@localhost
 rm -rf heroku-client.tgz heroku-client
 wget https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz
 tar zxf heroku-client.tgz
-echo 'export PATH=/home/ann/heroku-client/bin:${PATH}' >> ~/.bashrc
+echo 'export PATH=${HOME}/heroku-client/bin:${PATH}' >> ~/.bashrc
 bash
 heroku status
 </code>
