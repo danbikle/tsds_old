@@ -1,31 +1,30 @@
-<code class='bash'>
-&lt;html>
-  &lt;h1>cnj23.html&lt;/h1>
-  &lt;hr />
+<html>
+  <h1>cnj23.html</h1>
+  <hr />
   The JavaScript in this page should issue predictions for observations in allpredictions.js.
-  &lt;br />
+  <br />
   You should use the debugger in the browser to interact with the JavaScript in this page.
-  &lt;hr />
-  &lt;script src="allpredictions.js">&lt;/script>
+  <hr />
+  <script src="allpredictions.js"></script>
 
-  &lt;script src="d3.v4.js">&lt;/script>
+  <script src="d3.v4.js"></script>
 
-  &lt;script src="convnet_init.js">&lt;/script>
-  &lt;script src="convnet_util.js" >&lt;/script>
-  &lt;script src="convnet_vol.js" >&lt;/script>
-  &lt;script src="convnet_vol_util.js" >&lt;/script>
-  &lt;script src="convnet_layers_dotproducts.js" >&lt;/script>
-  &lt;script src="convnet_layers_pool.js" >&lt;/script>
-  &lt;script src="convnet_layers_input.js" >&lt;/script>
-  &lt;script src="convnet_layers_loss.js" >&lt;/script>
-  &lt;script src="convnet_layers_nonlinearities.js" >&lt;/script>
-  &lt;script src="convnet_layers_dropout.js" >&lt;/script>
-  &lt;script src="convnet_layers_normalization.js" >&lt;/script>
-  &lt;script src="convnet_net.js" >&lt;/script>
-  &lt;script src="convnet_trainers.js" >&lt;/script>
-  &lt;script src="convnet_magicnet.js" >&lt;/script>
-  &lt;script src="convnet_export.js" >&lt;/script>
-  &lt;script>
+  <script src="convnet_init.js"></script>
+  <script src="convnet_util.js" ></script>
+  <script src="convnet_vol.js" ></script>
+  <script src="convnet_vol_util.js" ></script>
+  <script src="convnet_layers_dotproducts.js" ></script>
+  <script src="convnet_layers_pool.js" ></script>
+  <script src="convnet_layers_input.js" ></script>
+  <script src="convnet_layers_loss.js" ></script>
+  <script src="convnet_layers_nonlinearities.js" ></script>
+  <script src="convnet_layers_dropout.js" ></script>
+  <script src="convnet_layers_normalization.js" ></script>
+  <script src="convnet_net.js" ></script>
+  <script src="convnet_trainers.js" ></script>
+  <script src="convnet_magicnet.js" ></script>
+  <script src="convnet_export.js" ></script>
+  <script>
     
     // Features:
     // pctlag1,2,4,8,16
@@ -60,13 +59,13 @@
     // I should learn from random observations between 6900 to 8900
     start_i         = 6900
     end_i           = start_i + 2000
-    for (var pass_i = 0; pass_i &lt; 1234567; pass_i++) {
+    for (var pass_i = 0; pass_i < 1234567; pass_i++) {
       row_i     = convnetjs.randi(end_i,start_i)
       var row   = mycsv_a[row_i]
       var row_a = [+row.pctlag1, +row.pctlag2, +row.pctlag4, +row.pctlag8, +row.pctlag16]
       var obs_v = new convnetjs.Vol(row_a)
       // I should train the net with info that obs_v has class 0 or 1:
-      if (+row.pctlead &lt; 0) {
+      if (+row.pctlead < 0) {
         trainer.train(obs_v, 0)
       } else {
         trainer.train(obs_v, 1)
@@ -80,7 +79,7 @@
     var acc_sum_i     = 0   // Simple Accuracy metric.
     var lo_acc_sum_i  = 0   // Long Only Accuracy metric.
     var obs_i         = 0
-    for (var cntr_i   = 8900;cntr_i&lt; mycsv_a.length; cntr_i++) {
+    for (var cntr_i   = 8900;cntr_i< mycsv_a.length; cntr_i++) {
       obs_i    += 1
       var row   = mycsv_a[cntr_i]
       var row_a = [+row.pctlag1, +row.pctlag2, +row.pctlag4, +row.pctlag8, +row.pctlag16]
@@ -110,6 +109,5 @@
     // 2 * trues - all:
     console.log(2 *    acc_sum_i - obs_i)
     console.log(2 * lo_acc_sum_i - obs_i)
-  &lt;/script>
-&lt;/html>
-</code>
+  </script>
+</html>
