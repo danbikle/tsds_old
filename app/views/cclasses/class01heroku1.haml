@@ -1,0 +1,32 @@
+%h2 Class01 Lab Answer:
+%h2 Deploy www.spy611.com to your heroku account
+
+%p I used the checklist below to do this lab:
+
+%ul
+  %li I got a yahoo email account.
+  %li I used yahoo email account to create heroku.com account.
+
+  %li I Looked for this folder:
+  %li ~/heroku-client/
+
+  %li I found it, I did this:
+  %li mv ~/heroku-client/ ~/heroku-client-old/
+
+  %li Then I typed these shell commands:
+  %li
+    .syntax
+      %pre
+        %code
+          cd ~/Downloads
+          curl https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz > heroku-client.tgz
+          tar zxf heroku-client.tgz
+          mv      heroku-client ~
+          echo 'export PATH="${HOME}/heroku-client/bin:$PATH"' >> ~/.bashrc
+          bash
+          cd ~/spy611v2
+          which heroku
+          heroku create spy611x2016
+          git push heroku master
+
+  %li browse spy611x2016.herokuapp.com
