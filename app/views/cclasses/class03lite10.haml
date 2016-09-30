@@ -1,11 +1,23 @@
 %h2 Class03 Lab Answer:
 %h2 Write a script which loads allpredictions.csv into a Sqlite table
 
-%p I start by creating the file listed below:
+%p I start by creating the sql script listed below:
 
 .syntax
   %pre
     =render 'class03lite11'
 
-%p Next I should get a list of all the column names copied into a sql script:
+%p Next I should write a list of all the column names to the end of the sql script:
+
+.syntax
+  %pre
+    %code.bash
+      cd /tmp/
+      curl www.spy611.com/csv/allpredictions.csv > allpredictions.csv
+      head -1 allpredictions.csv |\
+      sed '1s/^/(/'              |\
+      sed '1s/,/ string,/g'      |\
+      sed '1s/$/ string);/' > /tmp/cols.txt
+      cat /tmp/cols.txt
+      cat /tmp/cols.txt >> /tmp/sqlite_csv.sql
 
