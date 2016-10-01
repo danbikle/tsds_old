@@ -1,3 +1,4 @@
+<code class='bash'>
 #!/bin/bash
 
 # gbrt10.bash
@@ -23,7 +24,7 @@ sort gspc.csv|awk -F, '{print $1"," $5}'|grep -v Date >> gspc2.csv
 
 # I should learn, test, and report:
 rm -f tmp.csv
-for ((year=2000; year < 2017 ; year++))
+for ((year=2000; year &lt; 2017 ; year++))
 do
   echo $year
   ~/anaconda3/bin/python learn_tst_rpt.py TRAINSIZE=25 TESTYEAR=$year
@@ -34,3 +35,4 @@ head -1 tmp.csv        > many_predictions.csv
 grep -v cdate tmp.csv >> many_predictions.csv
 ~/anaconda3/bin/python many_predictions_rpt.py
 exit
+</code>
