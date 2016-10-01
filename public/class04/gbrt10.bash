@@ -14,13 +14,21 @@ cd       ~/tsds/public/class04/
 
 # I should extract two columns and also sort:
 echo cdate,cp                                                              > gspc2.csv
-sort ~/reg4us/public/csv/gspc.csv|awk -F, '{print $1"," $5}'|grep -v Date >> gspc2.csv
-exit
+sort gspc.csv|awk -F, '{print $1"," $5}'|grep -v Date >> gspc2.csv
 
 # I should compute features from the prices:
 ~/anaconda3/bin/python genf.py SLOPES='[2,3,4,5,6,7,8,9]'
 
 # I should learn, test, and report:
-~/anaconda3/bin/python learn_tst_rpt.py TRAINSIZE=25 TESTYEAR=2016
-
+rm -f tmp.csv
+for ((year=2000; year < 2017 ; year++))
+do
+  echo $year
+  ~/anaconda3/bin/python learn_tst_rpt.py TRAINSIZE=25 TESTYEAR=$year
+  cat predictions.csv >> tmp.csv
+  cp rgb.png rgb${year}.png
+done
+head -1 tmp.csv        > many_predictions.csv
+grep -v cdate tmp.csv >> many_predictions.csv
+~/anaconda3/bin/python many_predictions_rpt.py
 exit
