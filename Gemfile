@@ -9,7 +9,10 @@ gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 
 gem 'therubyracer', platforms: :ruby
 
-gem 'pg', '~> 0.18'
+group :production do
+  gem 'pg', '~> 0.18'
+end
+
 
 gem 'puma', '~> 3.0'
 
@@ -29,6 +32,7 @@ gem 'jbuilder', '~> 2.0'
 # gem 'redis', '~> 3.0'
 
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
