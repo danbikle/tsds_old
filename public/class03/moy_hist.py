@@ -20,11 +20,23 @@ df10['moy'] = moy_l
 # Over the past 30 years I should collect pctlead vs moy:
 yr30_i = 252 * 30
 df11   = df10[1:yr30_i][['pctlead','moy']]
+df11.columns = ['Pct-Lead-Sum','Month-of-Year']
 
 # I should groupby moy and compute mean:
-moy_gb = df11.groupby('moy')
+moy_gb = df11.groupby('Month-of-Year')
 moy_gb_df = moy_gb.sum()
 print(moy_gb_df)
 
-'bye'
+import matplotlib
+# matplotlib.use('Agg')
+# Order is important here.
+# Do not move the next import:
+import matplotlib.pyplot as plt
 
+moy_gb_df.plot.bar(title="30 Year Pct-Lead-Sum vs Month-of-Year", figsize=(11,7))
+plt.grid(True)
+# plt.savefig('pctlead_moy.png')
+plt.show()
+# plt.close()
+
+'bye'
