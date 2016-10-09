@@ -20,8 +20,11 @@ df10['moy'] = moy_l
 # Over the past 30 years I should collect pctlead vs moy:
 yr30_i = 252 * 30
 df11   = df10[1:yr30_i][['pctlead','moy']]
-pdb.set_trace()
-df11.head()
+
+# I should groupby moy and compute mean:
+moy_gb = df11.groupby('moy')
+moy_gb_df = moy_gb.sum()
+print(moy_gb_df)
 
 'bye'
 
