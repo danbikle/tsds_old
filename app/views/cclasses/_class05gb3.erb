@@ -1,0 +1,112 @@
+<code class='bash'>
+dan@pavlap:~/tsds/public/class05 $ 
+dan@pavlap:~/tsds/public/class05 $ R -f moy_hist.r 
+
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # moy_hist.r
+> 
+> # This script should sum pctlead and groupby month of year
+> # This script should sum pctlead and groupby day   of week
+> # Demo:
+> # R -f moy_hist.r
+> # or
+> # source('moy_hist.r')
+> 
+> csv_l  = read.csv('http://ichart.finance.yahoo.com/table.csv?s=%5EGSPC')
+> summary(csv_l)
+         Date            Open              High              Low         
+ 1950-01-03:    1   Min.   :  16.66   Min.   :  16.66   Min.   :  16.66  
+ 1950-01-04:    1   1st Qu.:  84.30   1st Qu.:  85.14   1st Qu.:  83.72  
+ 1950-01-05:    1   Median : 154.41   Median : 155.10   Median : 153.79  
+ 1950-01-06:    1   Mean   : 502.54   Mean   : 505.68   Mean   : 499.23  
+ 1950-01-09:    1   3rd Qu.: 995.90   3rd Qu.:1005.09   3rd Qu.: 985.89  
+ 1950-01-10:    1   Max.   :2187.81   Max.   :2193.81   Max.   :2186.80  
+ (Other)   :16796                                                        
+     Close             Volume            Adj.Close      
+ Min.   :  16.66   Min.   :6.800e+05   Min.   :  16.66  
+ 1st Qu.:  84.30   1st Qu.:8.055e+06   1st Qu.:  84.30  
+ Median : 154.49   Median :7.810e+07   Median : 154.49  
+ Mean   : 502.67   Mean   :8.335e+08   Mean   : 502.67  
+ 3rd Qu.: 996.40   3rd Qu.:9.041e+08   3rd Qu.: 996.40  
+ Max.   :2190.15   Max.   :1.146e+10   Max.   :2190.15  
+                                                        
+> 
+> # I should convert my list into a Data Frame:
+> csv_df = data.frame(csv_l)
+> 
+> # For 30 years, I should get Date and Close:
+> df10 = csv_df[c(1:(252*30)), c("Date","Close")]
+> 
+> # I should shift the Close column to lead me towards pctlead:
+> lead_v = c(c(df10$Close[1]), df10$Close)[1:length(df10$Close)]
+> df10$leadp = lead_v
+> 
+> # I should calculate pctlead:
+> df10$pctlead = 100.0*(df10$leadp - df10$Close)/df10$Close
+> 
+> # I should create two date-features:
+> df10$moy = format(as.Date(df10$Date),"%m")
+> df10$dow = format(as.Date(df10$Date),"%w")
+> 
+> # I should use aggregate() to sum(pctlead) groupby Month-of-Year:
+> agg_moy = aggregate(pctlead ~ moy, df10, sum)
+> print('Sum of pctlead groupby Month-of-Year:')
+[1] "Sum of pctlead groupby Month-of-Year:"
+> print(agg_moy)
+   moy    pctlead
+1   01  18.410528
+2   02   4.083382
+3   03  49.299365
+4   04  54.470347
+5   05  21.998855
+6   06   6.979650
+7   07  23.791788
+8   08 -24.041308
+9   09  -6.173679
+10  10  32.980069
+11  11  26.273466
+12  12  63.389104
+> 
+> # I should use aggregate() to sum(pctlead) groupby Day-of-Week:
+> agg_dow = aggregate(pctlead ~ dow, df10, sum)
+> print('Sum of pctlead groupby Day-of-Week:')
+[1] "Sum of pctlead groupby Day-of-Week:"
+> print(agg_dow)
+  dow   pctlead
+1   1 91.287526
+2   2 85.936764
+3   3 45.729998
+4   4  6.050554
+5   5 42.456724
+> 
+> # I should create a plot window of 2 rows and one col:
+> par(mfrow = c(2,1))
+> 
+> plot(agg_moy$pctlead ~ agg_moy$moy, type="h", col="blue", lwd=10)
+> grid()
+> 
+> plot(agg_dow$pctlead ~ agg_dow$dow, type="h", col="darkgreen", lwd=10)
+> grid()
+> 
+> 
+dan@pavlap:~/tsds/public/class05 $ 
+dan@pavlap:~/tsds/public/class05 $ 
+</code>
+
