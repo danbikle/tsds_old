@@ -26,10 +26,20 @@ df10$dow = format(as.Date(df10$Date),"%w")
 
 head(df10)
 
+agg_moy = aggregate(pctlead ~ moy, df10, sum)
 print('Sum of pctlead groupby month of year:')
-print(aggregate(pctlead ~ moy, df10, sum))
+print(agg_moy)
 
+agg_dow = aggregate(pctlead ~ dow, df10, sum)
 print('Sum of pctlead groupby day of week:')
-print(aggregate(pctlead ~ dow, df10, sum))
+print(agg_dow)
 
-# under construction
+# I should create a plot window of 2 rows and one col:
+par(mfrow = c(2,1))
+
+plot(agg_moy$pctlead ~ agg_moy$moy, type="h", col="blue", lwd=10)
+grid()
+
+plot(agg_dow$pctlead ~ agg_dow$dow, type="h", col="darkgreen", lwd=10)
+grid()
+
