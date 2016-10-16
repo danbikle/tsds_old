@@ -19,7 +19,7 @@
       %pre
         %code
           cd ~/Downloads
-          curl https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz > heroku-client.tgz
+          \/usr/bin/curl https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz > heroku-client.tgz
           tar zxf heroku-client.tgz
           mv      heroku-client ~
           echo 'export PATH="${HOME}/heroku-client/bin:$PATH"' >> ~/.bashrc
