@@ -21,5 +21,6 @@ feat1_df = feat0_df[['cdate','pctlead','dow','moy']]
 cdate_sr = (feat1_df.cdate > yr_s) & (feat1_df.cdate < str(yr_i+1))
 feat2_df = feat1_df[cdate_sr]
 
+hm0 = HeatMap(feat2_df, x=bins('dow'), y=bins('moy'), values='pctlead', stat='mean')
 
 'bye'
