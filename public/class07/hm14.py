@@ -23,4 +23,7 @@ feat2_df = feat1_df[cdate_sr]
 
 hm0 = HeatMap(feat2_df, x=bins('dow'), y=bins('moy'), values='pctlead', stat='mean')
 
+output_file("hm14.html", title="Bokeh heatmap example (hm14.py)")
+show(hm0)
+
 'bye'
