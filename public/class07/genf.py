@@ -1,7 +1,7 @@
 # genf.py
 
 # This script should generate a csv file full of features:
-# Day-of-Week (dow) and Month-of-Year (moy).
+# pctlag1, Day-of-Week (dow) and Month-of-Year (moy).
 # A synonym of feature is independent-variable.
 # This script should also generate a dependent variable called pctlead.
 # The input data is GSPC prices from Yahoo.
@@ -18,8 +18,9 @@ gspc1_df         = gspc0_df.copy()[['Date','Close']]
 gspc1_df.columns = ['cdate','cp']
 # I should sort by cdate ascending
 gspc_df          = gspc1_df.sort_values('cdate')
-# I should compute pctlead:
+# I should compute pctlead and then get pctlag1 from it:
 gspc_df['pctlead'] = (100.0 * (gspc_df.cp.shift(-1) - gspc_df.cp) / gspc_df.cp).fillna(0)
+gspc_df['pctlag1'] = gspc_df.pctlead.shift(1).fillna(0)
 
 # I should generate Date features:
 dt_sr = pd.to_datetime(gspc_df.cdate)
