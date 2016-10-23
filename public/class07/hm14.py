@@ -104,7 +104,23 @@ hm6 = HeatMap(lagdown_df
               ,stat  ='mean'
               ,tools = tools_s
               ,legend='top_right'
-              ,title ='Lagdown Heatmap'
+              ,title ='Lag-down Heatmap'
+              ,xlabel='Day Of Week'
+              ,ylabel='Month Of Year'
+              ,palette      =RdYlGn9
+              ,spacing_ratio=0.9
+              ,width        =900
+              ,plot_height  =900
+              )
+
+hm7 = HeatMap(lagup_df
+              ,x     ='dow'
+              ,y     ='moy'
+              ,values='pctlead'
+              ,stat  ='mean'
+              ,tools = tools_s
+              ,legend='top_right'
+              ,title ='Lag-up Heatmap'
               ,xlabel='Day Of Week'
               ,ylabel='Month Of Year'
               ,palette      =RdYlGn9
@@ -115,6 +131,6 @@ hm6 = HeatMap(lagdown_df
 
 output_file('hm14.html', title='Bokeh heatmap example (hm14.py)')
 
-show(column(hm5,hm6))
+show(column(hm6,hm7))
 
 'bye'
