@@ -34,8 +34,8 @@ hm0 = HeatMap(feat2_df
               )
 
 hm1 = HeatMap(feat2_df
-              ,x     =bins('dow')
-              ,y     =bins('moy')
+              ,x     ='dow'
+              ,y     ='moy'
               ,values='pctlead'
               ,stat  ='mean'
               ,tools = tools_s              
@@ -43,10 +43,43 @@ hm1 = HeatMap(feat2_df
               ,plot_height=500
               )
 
+hm2 = HeatMap(feat2_df
+              ,x     ='dow'
+              ,y     ='moy'
+              ,values='pctlead'
+              ,stat  ='mean'
+              ,tools = tools_s
+              ,legend='top_right'           
+              ,width =900
+              ,plot_height=900
+              )
+
+hm3 = HeatMap(feat2_df
+              ,x     ='dow'
+              ,y     ='moy'
+              ,values='pctlead'
+              ,stat  ='mean'
+              ,tools = tools_s
+              ,legend='top_right'
+              ,palette=RdYlGn6
+              ,width =900
+              ,plot_height=900
+              )
+
+hm4 = HeatMap(feat2_df
+              ,x     ='dow'
+              ,y     ='moy'
+              ,values='pctlead'
+              ,stat  ='mean'
+              ,tools = tools_s
+              ,legend='top_right'
+              ,palette=RdYlGn9
+              ,width =900
+              ,plot_height=900
+              )
+
 output_file("hm14.html", title="Bokeh heatmap example (hm14.py)")
 
-# 
-
-show(column(hm0,hm1))
+show(column(hm4))
 
 'bye'
