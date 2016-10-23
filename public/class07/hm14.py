@@ -28,7 +28,18 @@ hm0 = HeatMap(feat2_df
               ,y     =bins('moy')
               ,values='pctlead'
               ,stat  ='mean'
-              ,width=900
+              ,tools = tools_s              
+              ,width =900
+              ,plot_height=500
+              )
+
+hm1 = HeatMap(feat2_df
+              ,x     =bins('dow')
+              ,y     =bins('moy')
+              ,values='pctlead'
+              ,stat  ='mean'
+              ,tools = tools_s              
+              ,width =900
               ,plot_height=500
               )
 
@@ -36,6 +47,6 @@ output_file("hm14.html", title="Bokeh heatmap example (hm14.py)")
 
 # 
 
-show(hm0)
+show(column(hm0,hm1))
 
 'bye'
