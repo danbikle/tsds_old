@@ -78,8 +78,24 @@ hm4 = HeatMap(feat2_df
               ,plot_height=900
               )
 
-output_file("hm14.html", title="Bokeh heatmap example (hm14.py)")
+hm5 = HeatMap(feat2_df
+              ,x     ='dow'
+              ,y     ='moy'
+              ,values='pctlead'
+              ,stat  ='mean'
+              ,tools = tools_s
+              ,legend='top_right'
+              ,title ='Bokeh heatmap example (hm14.py)'
+              ,palette      =RdYlGn9
+              ,spacing_ratio=0.9
+              ,width        =900
+              ,plot_height  =900
+              )
 
-show(column(hm4))
+
+
+output_file('hm14.html', title='Bokeh heatmap example (hm14.py)')
+
+show(column(hm4,hm5))
 
 'bye'
