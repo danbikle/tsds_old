@@ -1,11 +1,11 @@
 <code class='python'>
-# hm15.py
+# hm16.py
 
 # Ref:
 # http://bokeh.pydata.org/en/latest/docs/gallery/heatmap_chart.html
 
 # Demo:
-# ~/anaconda3/bin/python hm15.py
+# ~/anaconda3/bin/python hm16.py
 
 import pandas as pd
 from bokeh.charts   import HeatMap, bins, output_file, show
@@ -30,7 +30,7 @@ hm6 = HeatMap(lagdown_df
               ,x     ='dow'
               ,y     ='moy'
               ,values='pctlead'
-              ,stat  ='mean'
+              ,stat  ='sum'
               ,tools = tools_s
               ,legend='top_right'
               ,title ='Lag-down Heatmap'
@@ -46,7 +46,7 @@ hm7 = HeatMap(lagup_df
               ,x     ='dow'
               ,y     ='moy'
               ,values='pctlead'
-              ,stat  ='mean'
+              ,stat  ='sum'
               ,tools = tools_s
               ,legend='top_right'
               ,title ='Lag-up Heatmap'
@@ -58,7 +58,7 @@ hm7 = HeatMap(lagup_df
               ,plot_height  =900
               )
 
-output_file('hm15.html', title='Bokeh heatmap example (hm15.py)')
+output_file('hm16.html', title='Bokeh heatmap example (hm16.py)')
 
 show(column(hm6,hm7))
 
