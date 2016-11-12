@@ -52,3 +52,43 @@ sudo rsync -av cuda/ /usr/local/cuda/
 ls -la /usr/local/cuda/include/cudnn.h
 ls -la /usr/local/cuda/lib64/libcudnn*
 
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"' >> ~/.bashrc
+export CUDA_HOME=/usr/local/cuda >> ~/.bashrc
+bash
+
+
+rm -rf ~/anaconda3/
+
+cd ~/Downloads/
+wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz
+tar zxf Python-3.5.2.tgz
+cd      Python-3.5.2
+./configure --prefix=${HOME}/py35
+make
+make install
+cd ${HOME}/py35/bin
+ln -s python3 python
+export      PATH=${HOME}/py35/bin:$PATH
+echo 'export PATH=${HOME}/py35/bin:$PATH' >> ~/.bashrc
+bash
+cd ~/Downloads
+/usr/bin/curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
+python get-pip.py
+
+which pip
+pip --help
+
+pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp35-cp35m-linux_x86_64.whl
+
+
+# tftest.py
+import tensorflow as tf
+hello = tf.constant('Hello, TensorFlow!')
+sess = tf.Session()
+print(sess.run(hello))
+a = tf.constant(10)
+b = tf.constant(32)
+print(sess.run(a + b))
+
+
+python tftest.py
