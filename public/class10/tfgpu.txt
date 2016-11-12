@@ -10,11 +10,19 @@ I started here:
 
 I went here:
   https://developer.nvidia.com/cuda-downloads
-I got this:
+I downloaded this:
   cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64.deb
+
+I went here:
+  https://developer.nvidia.com/cudnn
+I registered.
+I downloaded this:
+  cudnn-8.0-linux-x64-v5.0-ga.tgz
   
-I captured an image:
+  
+I captured images:
   cuda8.png
+  cudnn50.png
 
 I studied this:
   http://docs.nvidia.com/cuda/index.html
@@ -22,4 +30,20 @@ I studied this:
 
 I studied this:
   http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
+
+Actions:
+
+lspci | grep -i nvidia
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev   \
+libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev curl libgdbm-dev gitk \
+openssh-server libbz2-dev linux-headers-$(uname -r)
+
+cd ~/Downloads/
+dpkg -i cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64.deb
+sudo apt-get update
+sudo apt-get install cuda
 
