@@ -135,5 +135,23 @@
   %pre
     %code.bash sudo shutdown -r now
 
+%p I ensured that Anaconda was out of the way:
+
+.syntax
+  %pre
+    %code.bash rm -rf ~/anaconda3/
+
+%p I installed recent copy of Python to a folder under my home-folder:
+
+.syntax
+  %pre
+    =render 'class10tf12'
+
+%p I verified that I was using Python 3.5.2 rather than the system 2.7 Python:
+
+.syntax
+  %pre
+    =render 'class10tf13'
+
 
 
