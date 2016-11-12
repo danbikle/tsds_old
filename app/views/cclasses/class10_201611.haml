@@ -153,5 +153,34 @@
   %pre
     =render 'class10tf13'
 
+%p Next, I installed a TensorFlow package which is designed to link with the Cuda software:
+
+.syntax
+  %pre
+    %code.bash pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp35-cp35m-linux_x86_64.whl
+
+%p Then I wrote a simple script:
+
+.syntax
+  %pre
+    =render 'class10tf14'
+
+%p I ran the above script and saw this:
+
+.syntax
+  %pre
+    =render 'class10tf15'
+
+%p It worked!
+%p Yay!!
+
+%p The next step is to write some machine learning scripts in a simple benchmarking environment.
+%p I should run some tests to see if my GeForce GTX 950M GPU will run my scripts faster than my i7-CPU.
+
+
+
+
+
+
 
 
