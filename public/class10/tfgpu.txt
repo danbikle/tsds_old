@@ -1,0 +1,25 @@
+~/tsds/public/class10/tfgpu.txt
+
+This file should contain some notes on installing some software:
+  - cuda 8.0
+  - cuDNN
+  - TensorFlow
+
+I started here:
+  https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#optional-install-cuda-gpus-on-linux
+
+I went here:
+  https://developer.nvidia.com/cuda-downloads
+I got this:
+  cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64.deb
+  
+I captured an image:
+  cuda8.png
+
+I studied this:
+  http://docs.nvidia.com/cuda/index.html
+  (CUDA Toolkit Documentation v8.0 )
+
+I studied this:
+  http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
+
