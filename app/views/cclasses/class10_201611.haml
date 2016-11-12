@@ -93,3 +93,17 @@
   %a(href='http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html' target='x')
     http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
 
+%p I ran a shell command to 'see' the GPU in my laptop:
+.syntax
+  %pre
+    %code.bash lspci | grep -i nvidia
+
+%p I saw it:
+.syntax
+  %pre
+    %code.bash
+      dan@acer2:~/tsds/public/class10 $ 
+      dan@acer2:~/tsds/public/class10 $ lspci | grep -i nvidia
+      01:00.0 3D controller: NVIDIA Corporation GM107M [GeForce GTX 950M] (rev a2)
+      dan@acer2:~/tsds/public/class10 $ 
+      dan@acer2:~/tsds/public/class10 $ 
