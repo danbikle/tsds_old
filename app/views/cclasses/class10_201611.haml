@@ -99,6 +99,7 @@
     %code.bash lspci | grep -i nvidia
 
 %p I saw it:
+
 .syntax
   %pre
     %code.bash
@@ -113,3 +114,26 @@
 .syntax
   %pre
     =render 'class10tf10'
+
+%p I ran some shell commands to install the software I had downloaded earlier:
+
+.syntax
+  %pre
+    =render 'class10tf11'
+
+%p I enhanced my env-variables:
+
+.syntax
+  %pre
+    %code.bash
+      echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"' >> ~/.bashrc
+      export CUDA_HOME=/usr/local/cuda >> ~/.bashrc
+
+%p I rebooted the host:
+
+.syntax
+  %pre
+    %code.bash sudo shutdown -r now
+
+
+

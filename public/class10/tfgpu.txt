@@ -56,6 +56,7 @@ echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/
 export CUDA_HOME=/usr/local/cuda >> ~/.bashrc
 bash
 
+sudo shutdown -r now
 
 rm -rf ~/anaconda3/
 
@@ -80,7 +81,6 @@ pip --help
 
 pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp35-cp35m-linux_x86_64.whl
 
-sudo shutdown -r now
 
 # tftest.py
 import tensorflow as tf
