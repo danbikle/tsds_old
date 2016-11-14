@@ -20,8 +20,28 @@
 
 
 %h2 Project:
+
+%p I started this project with a fresh install of Anaconda Python:
+
+.syntax
+  %pre
+    %code.bash
+      cd ~
+      wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
+      bash Anaconda3-4.2.0-Linux-x86_64.sh
+      echo 'export PATH="${HOME}/anaconda3/bin:$PATH"' >> ~/.bashrc
+      mv ~/anaconda3/bin/curl ~/anaconda3/bin/curl_ana
+      bash
+%p Next, I installed version 0.10.0 of TensorFlow.
+%p I tried this lab with version 0.11 and it failed.
+%p So, I installed version 0.10.0 of TensorFlow:
+
+.syntax
+  %pre
+    %code.bash conda install -c conda-forge tensorflow=0.10.0
+    
 %ul
-  %li Shell script:
+  %li Then I wrote a Shell script:
   %li
     .syntax
       %pre
