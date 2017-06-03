@@ -1,56 +1,34 @@
-# calc1.py
+"""
+calc1.py
+This script should calculate pctlag1 for a time series of closing prices.
+"""
 
-# This script should calculate lag1 for a time series.
+# pandas_datareader depends on shell command:
+# conda install pandas-datareader
 
-# Here is a simple time series implemented as a simple List:
-ts_l = [
-  ['2016-01-04', 2012.66]
-  ,['2016-01-05', 2016.71]
-  ,['2016-01-06', 1990.26]
-  ,['2016-01-07', 1943.09]
-  ,['2016-01-08', 1922.03]
-  ,['2016-01-11', 1923.67]
-  ,['2016-01-12', 1938.68]
-  ,['2016-01-13', 1890.28]
-  ,['2016-01-14', 1921.84]
-  ,['2016-01-15', 1880.33]
-  ,['2016-01-19', 1881.33]
-  ,['2016-01-20', 1859.33]
-  ,['2016-01-21', 1868.99]
-  ,['2016-01-22', 1906.90]
-  ,['2016-01-25', 1877.08]
-  ,['2016-01-26', 1903.63]
-  ,['2016-01-27', 1882.95]
-  ,['2016-01-28', 1893.36]
-  ,['2016-01-29', 1940.24]
-]
+import pandas_datareader as pdr
+import datetime
 
-# I start the calculation by getting prices copied into a List:
-cp0_l = [el[1] for el in ts_l]
+start_dt  = datetime.datetime(2016,  1,  1)
+end_dt    = datetime.datetime(2016, 12, 31)
+prices_df = pdr.DataReader('IBM', 'google', start_dt, end_dt)
 
-# With a copy of the List,
-# I push a value into the top of the List and cut off a value from the bottom:
-cp1_l = [cp0_l[0]] + cp0_l[0:-1]
+# I should get the Close-column, which is closing-price, and shift it forward by 1:
+lagprice_sr = prices_df.Close.shift(1)
 
-# I should check that the two Lists are same length:
-len(cp0_l) == len(cp1_l) # should be True
+# I should combine the above Series with prices_df.Close to get pctlag1 of prices_df.Close:
+pct_lag1_sr = 100.0 * (prices_df.Close - prices_df.Close.shift(1)) / prices_df.Close.shift(1)
 
-# I should convert the Lists to Numpy Arrays so I can do arithmetic:
-import numpy  as np
-cp0_a = np.array(cp0_l)
-cp1_a = np.array(cp1_l)
-# I should do arithmetic:
-lag1_a = cp0_a - cp1_a
+# I should visualize pct_lag1_sr:
+prices_df['pct_lag1'] = pct_lag1_sr
 
+# I should visualize only 3 columns of data:
+vis_df = prices_df.copy()[['Close','pct_lag1']]
 
-# I should use Pandas to visualize the enhanced time series:
-import pandas as pd
+# I prefer the name closing_price instead of Close:
+vis_df.columns = ['closing_price', 'pct_lag1']
 
-lag1_df = pd.DataFrame(ts_l)
-lag1_df.columns = ['cdate','cp']
-lag1_df['lag1'] = lag1_a
-print('Here is a time series of prices and a calculation of lag1:')
-print(lag1_df)
+print(vis_df.head(22))
 
 'bye'
  
