@@ -17,7 +17,7 @@ prices_df = pdr.DataReader('IBM', 'google', start_dt, end_dt)
 lagprice_sr = prices_df.Close.shift(1)
 
 # I should combine the above Series with prices_df.Close to get pctlag1 of prices_df.Close:
-pct_lag1_sr = 100.0 * (prices_df.Close - prices_df.Close.shift(1)) / prices_df.Close.shift(1)
+pct_lag1_sr = 100.0 * (prices_df.Close - lagprice_sr) / lagprice_sr
 
 # I should visualize pct_lag1_sr:
 prices_df['pct_lag1'] = pct_lag1_sr
