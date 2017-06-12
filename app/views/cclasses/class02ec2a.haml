@@ -3,102 +3,80 @@
 
 %p This is an easy lab.
 
-%p I click this link:
+%p I clicked this link:
 %p
-  %a(href='https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2' target='x')
-    https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2
+  %a(href='https://console.aws.amazon.com' target='x')
+    https://console.aws.amazon.com
+  
+
 %p AWS might ask me to login.
-%p I should see something like this:
-%img(src='/class02/class02aws1b.png')
 
-%p Next, I click the blue-Launch-Instance button.
+%p I clicked the EC2 link.
 
 %p I should see something like this:
-%img(src='/class02/class02ec2b.png')
+%img(src='/class02/ec2_16-03-53.png')
 
-%ul
-  %li Click Community AMIs on left side.
-  %li
-    Search for this AMI:
-    %ul
-      %li ub4TSDS443sshd
-  %li If you find it, Click blue Select button on right side.
-  %li Specify you want a t2.medium instance with 4GB of Memory.
-  %li Click Next: Configure ...
-  %li Click Next: Add Storage
-  %li Click Next: Tag Instance
+%p Next, I clicked the blue button.
 
-  %li
-    Click Next: Configure Security ...
-    %ul
-      %li Click Add Rule:
-      %li
-        Custom TCP Rule:
-        %ul
-          %li HTTPS (about 1/2 way down)
-    %ul
-      %li
-        Click Add Rule:
-      %li
-        Custom TCP Rule:
-        %ul
-          %li Put 2016 in port-range-field
-          %li Set source to 'anywhere'
+%p I saw something like this:
+%img(src='/class02/ec2_16-04-52.png')
 
-  %li Intent above is to open ports 443 and 2016
-  %li I want to use 443 for ssh-traffic
-  %li I want to use 2016 for web-server traffic
-  %li Click Review Launch blue botton
-  %li Click Launch blue botton
-  %li Create (or pick existing) PEM key
-  %li I should see 'Launching' message from AWS.
-  %li
-    While waiting for launch, copy the key to ~/.ssh/tsds.pem:
-    %ul 
-      %li mkdir -p ~/.ssh/
-      %li cp ~/Downloads/whatever.pem ~/.ssh/tsds.pem
-      %li chmod 600 ~/.ssh/tsds.pem
-  %li
-    After launch, note the Public IP address of the new instance:
-    %ul
-      %li I should see something like this:
-      %li 54.201.123.142
+%p I interacted with a series of pages:
 
-  %li
-    After launch, I create (or update) ~/.ssh/config with syntax like this:
-    .syntax
-      %pre
-        =render 'spy611aws10'
+%img(src='/class02/ec2_16-05-19.png')
+%hr/
+%img(src='/class02/ec2_16-06-04.png')
+%hr/
+%img(src='/class02/ec2_16-06-32.png')
+%hr/
+%img(src='/class02/ec2_16-07-06.png')
+%hr/
+%img(src='/class02/ec2_16-07-28.png')
+%hr/
+%img(src='/class02/ec2_16-07-52.png')
+%hr/
+%img(src='/class02/ec2_16-08-18.png')
+%hr/
+%img(src='/class02/ec2_16-09-19.png')
+%hr/
+%img(src='/class02/ec2_16-09-47.png')
+%hr/
+%img(src='/class02/ec2_16-12-05.png')
+%hr/
+%p Note the chmod command in the instructions below:
+%img(src='/class02/ec2_16-13-01.png')
+%hr/
+%img(src='/class02/ec2_16-13-40.png')
+%hr/
+%p The screen below is missing a shell command:
 
-  %li
-    I should be able to login with simple shell command:
-    .syntax
-      %pre
-        %code.bash ssh uws
+.syntax
+  %pre
+    %code.bash chmod 400 ~/.ssh/bikle10.pem
+%p I edited a security group allowed my laptop to connect over ssh:
+%img(src='/class02/sg14-21-14.png')
+%hr/
+%img(src='/class02/sg14-21-32.png')
+%hr/
+%img(src='/class02/sg14-22-04.png')
+%hr/
+%img(src='/class02/sg14-22-44.png')
+%hr/
 
-  %li
-    I should see something like this:
-    .syntax
-      %pre
-        =render 'spy611aws11'
+%p I used ssh to connect to my new EC2 instance:
+%img(src='/class02/ec2_16-19-03.png')
+%hr/
 
-%p That completes this lab.
+%p I terminated the EC2 instance because I did not need it anymore:
+%hr/
+%img(src='/class02/ec2_16-22-53.png')
+%hr/
+%img(src='/class02/ec2_16-23-14.png')
+%hr/
 
-%p
-  You should probably 'stop' (or 'terminate') the EC2 instance to prevent Amazon from
-  loading your credit card with charges.  You can start it later when you need it.
+%p I did the above step from home; the school-network blocks outbound ssh connections.
 
-%p
-  The cost is low if you 'stop' the EC2 instance when you do not use it.
-
-%p
-  The difference between stop and terminate is that a stopped instance can be restarted.
-  
-%p
-  I terminate any instance I want gone forever; terminate means permanent.
-  
   
 %p
   %a(href='class02#lab')
     Class02 Lab
-    

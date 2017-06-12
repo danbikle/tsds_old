@@ -72,7 +72,7 @@
 
 %p The ifconfig command tells me the physical adapter of the host is called: 'enp59s0'.
 
-%p With that small piece of information, I can now configure Adpater 2 of the guest.
+%p With that small piece of information, I can now enable and configure Adpater 2 of the guest.
 
 %p I display some images below which contain clues on how to do this:
 %img(src='/class02/class02vbox12d.png')
@@ -94,6 +94,9 @@
 %p
   It is called a bridged configuration because I see it as creating a bridge
   between a guest-adapter and a host-adapter.
+%p The main reason to setup a bridged adapter is to allow ssh traffic into the guest host from other hosts on my network.
+
+%p If I don't need to permit ssh traffic into the guest, I like to leave Adapters 2,3,4 disabled.
 
 %p It is easy to find discussion about this topic via google:
 
