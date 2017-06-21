@@ -25,7 +25,7 @@ EOF
 
 # The tricky part to this script is getting a list of all the column names copied into a sql script:
 
-curl www.spy611.com/csv/allpredictions.csv > allpredictions.csv
+curl -L www.spy611.com/csv/allpredictions.csv > allpredictions.csv
 head -1 allpredictions.csv |\
     sed '1s/^/(/'          |\
     sed '1s/,/ string,/g'  |\
@@ -41,11 +41,32 @@ cat >> /tmp/sqlite_csv.sql <<EOF
 .import /tmp/allpredictions_nh.csv allpredictions
 
 -- I should run some interesting queries:
-
 select count(*) from allpredictions;
+
 select min(pctlead), avg(pctlead), max(pctlead) from allpredictions;
-select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 < -1.0;
-select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 >  1.0;
+
+-- If pctlag1 is strongly negative, what is pctlead?
+select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 < -1.1;
+
+-- If pctlag1 is strongly positive, what is pctlead?
+select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 >  1.1;
+
+-- What is correlation between pctlag1, pctlead?
+-- select corr(pctlag1, pctlead) from allpredictions;
+-- oops, I cannot do that.
+-- postgres has corr(x, y) but not sqlite.
+
+-- What did predictions look like in May 2016?
+select cdate,cp,pctlead,eff1d_lr,eff1d_nb from allpredictions
+where cdate like '2016-05%'
+order by cdate
+;
+
+-- In May 2016, which worked best, Long-Only, LR, or NB?
+-- I should aggregate to find out:
+select sum(pctlead),sum(eff1d_lr),sum(eff1d_nb) from allpredictions
+where cdate like '2016-05%'
+;
 
 .quit
 
