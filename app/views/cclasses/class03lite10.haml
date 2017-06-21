@@ -7,13 +7,14 @@
   %pre
     =render 'class03lite11'
 
-%p Next I should write a list of all the column names to the end of the sql script:
+%p Next I should type the commands below into a shell prompt.
+%p Why? I want to write a list of all the column names to the end of the sql script:
 
 .syntax
   %pre
     %code.bash
       cd /tmp/
-      curl www.spy611.com/csv/allpredictions.csv > allpredictions.csv
+      curl -L www.spy611.com/csv/allpredictions.csv > allpredictions.csv
       head -1 allpredictions.csv |\
       sed '1s/^/(/'              |\
       sed '1s/,/ string,/g'      |\
