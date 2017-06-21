@@ -1,20 +1,26 @@
 <code class='sql'>
-dan@pavlap:/tmp $ 
-dan@pavlap:/tmp $ 
-dan@pavlap:/tmp $ curl www.spy611.com/csv/allpredictions.csv > /tmp/allpredictions.csv
+dan@a78:~/tsds4/public/class03 $ 
+dan@a78:~/tsds4/public/class03 $ curl -L www.spy611.com/csv/allpredictions.csv > /tmp/allpredictions.csv
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100 1626k  100 1626k    0     0   888k      0  0:00:01  0:00:01 --:--:--  888k
-dan@pavlap:/tmp $ 
-dan@pavlap:/tmp $ 
-dan@pavlap:/tmp $ psql -a -P pager=no -f pg1.sql
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 1659k  100 1659k    0     0  1571k      0  0:00:01  0:00:01 --:--:-- 2706k
+dan@a78:~/tsds4/public/class03 $ 
+dan@a78:~/tsds4/public/class03 $ 
+dan@a78:~/tsds4/public/class03 $ ll /tmp/allpredictions.csv
+-rw-rw-r-- 1 dan dan 1699020 Jun 21 15:43 /tmp/allpredictions.csv
+dan@a78:~/tsds4/public/class03 $ 
+dan@a78:~/tsds4/public/class03 $ 
+dan@a78:~/tsds4/public/class03 $ psql -a -P pager=no -f pg1.sql
 -- pg1.sql
 -- This script should load allpredictions.csv into a postgres table.
 -- Demo:
--- curl www.spy611.com/csv/allpredictions.csv > /tmp/allpredictions.csv
+-- curl -L www.spy611.com/csv/allpredictions.csv > /tmp/allpredictions.csv
 -- psql -a -P pager=no -f pg1.sql
 drop   table allpredictions;
-DROP TABLE
+psql:pg1.sql:8: ERROR:  table "allpredictions" does not exist
 create table allpredictions
 (cdate text,cp numeric,pctlead numeric,pctlag1 numeric,pctlag2 numeric,pctlag4 numeric,pctlag8 numeric,pctlag16 numeric,actual_dir numeric,prob_lr numeric,pdir_lr numeric,eff1d_lr numeric,recent_eff_lr numeric,accuracy_lr text,pdir_nb numeric,eff1d_nb numeric,recent_eff_nb numeric,accuracy_nb text,lead numeric,rdelta numeric,gdelta numeric,red numeric,green numeric,allred numeric,allgreen numeric);
 CREATE TABLE
@@ -23,38 +29,38 @@ COPY allpredictions
 cdate,cp,pctlead,pctlag1,pctlag2,pctlag4,pctlag8,pctlag16,actual_dir,prob_lr,pdir_lr,eff1d_lr,recent_eff_lr,accuracy_lr,pdir_nb,eff1d_nb,recent_eff_nb,accuracy_nb,lead,rdelta,gdelta,red,green,allred,allgreen
 ) FROM '/tmp/allpredictions.csv' WITH CSV HEADER DELIMITER AS ','
 ;
-COPY 9016
+COPY 9197
 select count(*) from allpredictions;
  count 
 -------
-  9016
+  9197
 (1 row)
 
 select min(pctlead), avg(pctlead), max(pctlead) from allpredictions;
    min   |          avg           |  max   
 ---------+------------------------+--------
- -20.467 | 0.03688808784383318545 | 11.580
+ -20.467 | 0.03754137218658258128 | 11.580
 (1 row)
 
 -- If pctlag1 is strongly negative, what is pctlead?
-select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 &lt; -1.1;
+select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 < -1.1;
    min   |          avg           |  max   
 ---------+------------------------+--------
- -20.467 | 0.09524973319103521878 | 11.580
+ -20.467 | 0.09566170212765957447 | 11.580
 (1 row)
 
 -- If pctlag1 is strongly positive, what is pctlead?
 select min(pctlead), avg(pctlead), max(pctlead) from allpredictions where pctlag1 >  1.1;
   min   |          avg           |  max  
 --------+------------------------+-------
- -5.268 | 0.06280720545277507303 | 9.099
+ -5.268 | 0.06275945683802133851 | 9.099
 (1 row)
 
 -- What is correlation between pctlag1, pctlead?
 select corr(pctlag1, pctlead) from allpredictions;
         corr         
 ---------------------
- -0.0312213361476803
+ -0.0313914200135805
 (1 row)
 
 -- What did predictions look like in May 2016?
@@ -97,6 +103,7 @@ where cdate like '2016-05%'
  0.901 | 2.459 | -0.243
 (1 row)
 
-dan@pavlap:/tmp $ 
-dan@pavlap:/tmp $ 
+dan@a78:~/tsds4/public/class03 $ 
+dan@a78:~/tsds4/public/class03 $ 
+dan@a78:~/tsds4/public/class03 $
 </code>
