@@ -1,9 +1,10 @@
-# fit3.py
+"""
+fit3.py
 
-# This script should use NumPy and scikit-learn to fit a line to three points.
+This script should use scikit-learn to fit a line to three points.
+"""
 
-import numpy as np
-import pdb
+from sklearn import linear_model
 
 # I should declare three points:
 pt0 = [0.001,0.001]
@@ -23,8 +24,6 @@ y_l = [pt0[1],pt1[1],pt2[1]]
 # http://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html
 # http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
 
-from sklearn import linear_model
-
 # I should create linear regression object:
 regr0 = linear_model.LinearRegression()
 
@@ -40,7 +39,11 @@ regr0 = linear_model.LinearRegression()
 X_l = [ [pt0[0]], [pt1[0]], [pt2[0]] ]
 regr0.fit(X_l, y_l)
 
-# Doc says:
+# Middle school says:
+# y = mx + b
+# m is the slope, and b is y intercept.
+
+# sklearn Doc says:
 # y(w,x) = w0 + w1*x
 # I wrote pt0,1,2 so that w0 should be near 0. and w1 should be near 1.0
 # I should see if true:
@@ -52,6 +55,7 @@ print(regr0.coef_)
 y_l   = [ pt0[1]+0.1, pt1[1]+0.1, pt2[1]+0.1 ]
 regr1 = linear_model.LinearRegression()
 regr1.fit(X_l, y_l)
+print('I moved the points up. Now I have Line 1.')
 print('Line1 intercept and slope:')
 print(regr1.intercept_)
 print(regr1.coef_)
@@ -61,6 +65,7 @@ print(regr1.coef_)
 y_l   = [ pt0[1]+0.1, pt1[1]+0.1, pt2[1]+3.0 ]
 regr2 = linear_model.LinearRegression()
 regr2.fit(X_l, y_l)
+print('I moved only pt2 higher. Now I have Line 2.')
 print('Line2 intercept and slope:')
 print(regr2.intercept_)
 print(regr2.coef_)
