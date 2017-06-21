@@ -1,15 +1,16 @@
-# pd1.py
+"""
+pd1.py
 
-# This script should read 
-# http://www.spy611.com/csv/allpredictions.csv
-# using Pandas.
+This script should read 
+http://www.spy611.com/csv/allpredictions.csv
+using Pandas.
+"""
 
 # Google:
 # In Python how to use requests package to get CSV file?
 
 import requests
 import pandas as pd
-import pdb
 
 url_s = 'http://www.spy611.com/csv/allpredictions.csv'
 
@@ -29,8 +30,7 @@ print(allpredictions_df.tail())
 
 # Google:
 # In Python Pandas, how to read a CSV file from URL?
-easier_df = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')
+easier_df = pd.read_csv(url_s)
 print(easier_df.tail())
 
 'bye'
-
