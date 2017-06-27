@@ -1,9 +1,11 @@
-# naive_bayes.py
+"""
+naive_bayes.py
 
-# This script is a simple demo of using scikit-learn to run Naive Bayes.
+This script is a simple demo of using scikit-learn to run Naive Bayes.
 
-# Demo:
-# python naive_bayes.py
+Demo:
+python naive_bayes.py
+"""
 
 import pandas as pd
 import numpy  as np
@@ -11,8 +13,8 @@ import pdb
 
 # I should use Pandas here:
 data_df  = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')
-train_sr = (data_df['cdate'] > '1990') & (data_df['cdate'] < '2016')
-test_sr  =  data_df['cdate'] == '2016-06-23'
+train_sr = (data_df.cdate > '1990') & (data_df.cdate < '2016')
+test_sr  =  data_df.cdate == '2016-06-23'
 train_df = data_df[['pctlead', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][train_sr]
 test_df  = data_df[['pctlead', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][test_sr]
 
