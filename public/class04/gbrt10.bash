@@ -11,8 +11,8 @@
 mkdir -p ~/tsds/public/class04/
 cd       ~/tsds/public/class04/
 
-# I should get prices from Yahoo:
-/usr/bin/curl http://ichart.finance.yahoo.com/table.csv?s=%5EGSPC > gspc.csv
+# I should get prices from web:
+/usr/bin/curl -L ml4.us/csv/GSPC.csv > gspc.csv
 
 # I should extract two columns and also sort:
 echo cdate,cp                                          > gspc2.csv
@@ -32,5 +32,6 @@ do
 done
 head -1 tmp.csv        > many_predictions.csv
 grep -v cdate tmp.csv >> many_predictions.csv
+
 ~/anaconda3/bin/python many_predictions_rpt.py
 exit
