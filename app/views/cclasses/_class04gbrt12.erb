@@ -1,16 +1,18 @@
 <code class='python'>
-# learn_tst_rpt.py
+"""
+learn_tst_rpt.py
 
-# This script should learn from observations in feat.csv
+This script should learn from observations in feat.csv
 
-# Then it should test its learned models on observations later than the training observations.
+Then it should test its learned models on observations later than the training observations.
 
-# Next it should report effectiveness of the models.
+Next it should report effectiveness of the models.
 
-# Demo:
-# ~/anaconda3/bin/python learn_tst_rpt.py TRAINSIZE=25 TESTYEAR=2015
+Demo:
+~/anaconda3/bin/python learn_tst_rpt.py TRAINSIZE=25 TESTYEAR=2015
 
-# Above demo will train from 25 years before 2015 and predict each day of 2015
+Above demo will train from 25 years before 2015 and predict each day of 2015
+"""
 
 import numpy  as np
 import pandas as pd
