@@ -1,4 +1,3 @@
-<code class='python'>
 """
 linear_regression.py
 
@@ -15,7 +14,7 @@ from sklearn import linear_model
 
 # I should use Pandas here:
 data_df  = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')
-train_sr = (data_df['cdate'] > '1990') & (data_df['cdate'] &lt; '2016')
+train_sr = (data_df['cdate'] > '1990') & (data_df['cdate'] < '2016')
 test_sr  =  data_df['cdate'] == '2017-06-26'
 train_df = data_df[['pctlead', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][train_sr]
 test_df  = data_df[['pctlead', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][test_sr]
@@ -41,15 +40,3 @@ print('The Linear Regression prediction of pctlead for 2017-06-26 is...')
 print(aprediction_lr)
 
 'bye'
-</code>
-
-<hr />
-Then, I run it:
-
-<code class='bash'>
-tsds4@ub100:~/tsds4/public/class04 $ python linear_regression.py
-The Linear Regression prediction of pctlead for 2017-06-26 is...
-0.0301240847638
-tsds4@ub100:~/tsds4/public/class04 $ 
-tsds4@ub100:~/tsds4/public/class04 $ 
-</code>

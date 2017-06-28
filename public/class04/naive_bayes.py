@@ -10,6 +10,7 @@ python naive_bayes.py
 import pandas as pd
 import numpy  as np
 import pdb
+from sklearn.naive_bayes import GaussianNB
 
 # I should use Pandas here:
 data_df  = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')
@@ -25,7 +26,6 @@ y_train_a = train_a[:,0]
 train_median  = np.median(y_train_a)
 label_train_a = y_train_a > train_median
 # I should learn from x_train_a,label_train_a:
-from sklearn.naive_bayes import GaussianNB
 clf_nb = GaussianNB()
 clf_nb.fit(x_train_a, label_train_a)
 
