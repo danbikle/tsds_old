@@ -1,15 +1,17 @@
-# genf.py
+"""
+genf.py
 
-# Demo:
-# ~/anaconda3/bin/python genf.py SLOPES='[3,4,5,6,7,8,9]'
+Demo:
+~/anaconda3/bin/python genf.py SLOPES='[3,4,5,6,7,8,9]'
 
-# This script should generate features
-# from GSPC prices from Yahoo.
+This script should generate features
+from GSPC prices from Yahoo.
 
-# SLOPES should specify moving-avg durations, in days, which I compute slopes from.
-# I should have at least two SLOPE values and they should be between 2 and 32.
+SLOPES should specify moving-avg durations, in days, which I compute slopes from.
+I should have at least two SLOPE values and they should be between 2 and 32.
 
-# If you have questions, e-me: bikle101@gmail.com
+If you have questions, e-me: bikle101@gmail.com
+"""
 
 import numpy  as np
 import pandas as pd
