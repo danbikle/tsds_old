@@ -14,7 +14,7 @@ import pdb
 # I should use Pandas here:
 data_df  = pd.read_csv('http://www.spy611.com/csv/allpredictions.csv')
 train_sr = (data_df.cdate > '1990') & (data_df.cdate < '2016')
-test_sr  =  data_df.cdate == '2016-06-23'
+test_sr  =  data_df.cdate == '2017-06-26'
 train_df = data_df[['pctlead', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][train_sr]
 test_df  = data_df[['pctlead', 'pctlag1', 'pctlag2', 'pctlag4', 'pctlag8', 'pctlag16']][test_sr]
 
@@ -39,7 +39,7 @@ label_test_a  = y_test_a > train_median
 
 aprediction_nb = clf_nb.predict(xr_a)[0]
 
-print('I predict that 2016-06-24 will go up is...')
+print('I predict that 2017-06-27 will be higher than 2017-06-26 is...')
 print(aprediction_nb)
 
 'bye'
