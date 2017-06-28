@@ -1,8 +1,10 @@
-# many_predictions_rpt.py
-# This script should report from data in many_predictions.csv
+"""
+many_predictions_rpt.py
+This script should report from data in many_predictions.csv
 
-# Demo:
-# python many_predictions_rpt.py
+Demo:
+python many_predictions_rpt.py
+"""
 
 import pandas as pd
 import numpy  as np
