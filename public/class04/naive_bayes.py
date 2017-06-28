@@ -34,8 +34,6 @@ test_a   = np.array(test_df)
 x_test_a = test_a[:,1:]
 xf_a     = x_test_a.astype(float)
 xr_a     = xf_a.reshape(1, -1)
-y_test_a = test_a[:,0]
-label_test_a  = y_test_a > train_median
 
 aprediction_nb = clf_nb.predict(xr_a)[0]
 
