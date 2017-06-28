@@ -12,8 +12,8 @@
 mkdir -p ~/tsds/public/class04/
 cd       ~/tsds/public/class04/
 
-# I should get prices from Yahoo:
-/usr/bin/curl http://ichart.finance.yahoo.com/table.csv?s=%5EGSPC > gspc.csv
+# I should get prices from web:
+/usr/bin/curl -L ml4.us/csv/GSPC.csv > gspc.csv
 
 # I should extract two columns and also sort:
 echo cdate,cp                                          > gspc2.csv
@@ -24,7 +24,7 @@ sort gspc.csv|awk -F, '{print $1"," $5}'|grep -v Date >> gspc2.csv
 
 # I should learn, test, and report:
 rm -f tmp.csv
-for ((year=2000; year &lt; 2017 ; year++))
+for ((year=2000; year &lt; 2018 ; year++))
 do
   echo $year
   ~/anaconda3/bin/python learn_tst_rpt.py TRAINSIZE=25 TESTYEAR=$year
@@ -33,6 +33,7 @@ do
 done
 head -1 tmp.csv        > many_predictions.csv
 grep -v cdate tmp.csv >> many_predictions.csv
+
 ~/anaconda3/bin/python many_predictions_rpt.py
 exit
 </code>

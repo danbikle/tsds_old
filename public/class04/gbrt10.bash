@@ -23,7 +23,7 @@ sort gspc.csv|awk -F, '{print $1"," $5}'|grep -v Date >> gspc2.csv
 
 # I should learn, test, and report:
 rm -f tmp.csv
-for ((year=2000; year < 2017 ; year++))
+for ((year=2000; year < 2018 ; year++))
 do
   echo $year
   ~/anaconda3/bin/python learn_tst_rpt.py TRAINSIZE=25 TESTYEAR=$year
