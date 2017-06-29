@@ -37,7 +37,7 @@
 
 %p
   For the data and features I picked,
-  it appears that Logistic-Regression is more effective than GBRT-Regression
+  it appears that Logistic-Regression is more effective than GBRT
   which is more effective than Linear-Regression.
 %p Also the above script generates prediction visualizations of effectiveness.
 
@@ -64,6 +64,16 @@
 %img(src='/class04/rgb2015.png')
 %img(src='/class04/rgb2016.png')
 %img(src='/class04/rgb2017.png')
+
+%p The strong bullish bias of the GBRT model often matches the bullish bias of the Long-Only model.
+
+%p This means that for some years, the GBRT line follows the Long-Only line exactly.
+
+%p When this happens the Long-Only line cannot be seen.
+
+%p Perhaps one way to work-around this bug is to add a small delta to the Long-Only plot values.
+
+%p Then the Long-Only line would move up by a pixel or two and then become visible.
 
 %p
   %a(href='class04#lab')
