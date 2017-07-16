@@ -8,33 +8,47 @@
 # or
 # source('moy_hist.r')
 
-csv_l  = read.csv('http://ichart.finance.yahoo.com/table.csv?s=%5EGSPC')
+csv_l  = read.csv('http://www.spy611.com/csv/allpredictions.csv')
 summary(csv_l)
 
 # I should convert my list into a Data Frame:
-csv_df = data.frame(csv_l)
+csv1_df = data.frame(csv_l)
 
-# For 30 years, I should get Date and Close:
-df10 = csv_df[c(1:(252*30)), c("Date","Close")]
+# I should sort it by cdate ascending:
+csv2_df = csv1_df[order(csv1_df$cdate),]
 
-# I should shift the Close column to lead me towards pctlead:
-lead_v = c(c(df10$Close[1]), df10$Close)[1:length(df10$Close)]
-df10$leadp = lead_v
+# For 30 years, I should get cdate and cp:
+len0_i  = length(csv2_df$cp)
+start_i = (len0_i - 252*30)
+csv3_df = csv2_df[c(start_i:len0_i), c("cdate","cp")]
+
+# I should shift the cp column to lead me towards pctlead.
+# Pandas has shift.
+# In R I need to work for it:
+len1_i        = length(csv3_df$cp)
+lastp_f       = csv3_df$cp[len1_i]
+lead0_v       = c(csv3_df$cp, c(lastp_f)) # concatenation demo
+lead_v        = lead0_v[2:(len1_i+1)]
+csv3_df$leadp = lead_v
 
 # I should calculate pctlead:
-df10$pctlead = 100.0*(df10$leadp - df10$Close)/df10$Close
+csv3_df$pctlead = 100.0*(csv3_df$leadp - csv3_df$cp)/csv3_df$cp
 
 # I should create two date-features:
-df10$moy = format(as.Date(df10$Date),"%m")
-df10$dow = format(as.Date(df10$Date),"%w")
+csv3_df$moy = format(as.Date(csv3_df$cdate),"%m")
+csv3_df$dow = format(as.Date(csv3_df$cdate),"%w")
+
+# Report:
+head(csv3_df)
+tail(csv3_df)
 
 # I should use aggregate() to sum(pctlead) groupby Month-of-Year:
-agg_moy = aggregate(pctlead ~ moy, df10, sum)
+agg_moy = aggregate(pctlead ~ moy, csv3_df, sum)
 print('Sum of pctlead groupby Month-of-Year:')
 print(agg_moy)
 
 # I should use aggregate() to sum(pctlead) groupby Day-of-Week:
-agg_dow = aggregate(pctlead ~ dow, df10, sum)
+agg_dow = aggregate(pctlead ~ dow, csv3_df, sum)
 print('Sum of pctlead groupby Day-of-Week:')
 print(agg_dow)
 
@@ -47,4 +61,3 @@ grid()
 plot(agg_dow$pctlead ~ agg_dow$dow, type="h", col="darkgreen", lwd=10)
 grid()
 </code>
-
