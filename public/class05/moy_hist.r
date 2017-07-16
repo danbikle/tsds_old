@@ -21,15 +21,13 @@ len0_i  = length(csv2_df$cp)
 start_i = (len0_i - 252*30)
 csv3_df = csv2_df[c(start_i:len0_i), c("cdate","cp")]
 
-# I should shift the cp column to lead me towards pctlead:
-len1_i = length(csv3_df$cp)
-
-lastp_f = csv3_df$cp[len1_i]
-
-lead0_v = c(csv3_df$cp, c(lastp_f))
-
-lead_v = lead0_v[2:(len1_i+1)]
-
+# I should shift the cp column to lead me towards pctlead.
+# Pandas has shift.
+# In R I need to work for it:
+len1_i        = length(csv3_df$cp)
+lastp_f       = csv3_df$cp[len1_i]
+lead0_v       = c(csv3_df$cp, c(lastp_f)) # concatenation demo
+lead_v        = lead0_v[2:(len1_i+1)]
 csv3_df$leadp = lead_v
 
 # I should calculate pctlead:
