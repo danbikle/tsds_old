@@ -1,6 +1,6 @@
 <code class='bash'>
 cd ~/c6
-/usr/bin/curl http://www.spy611.com/csv/allpredictions.csv > allpredictions.csv
+/usr/bin/curl -L http://www.spy611.com/csv/allpredictions.csv > allpredictions.csv
 
 sed '1s/^/var mycsv_s="/' allpredictions.csv | sed '1,$s/$/\\n\\/' > allpredictions.js
 echo '"' >> allpredictions.js
